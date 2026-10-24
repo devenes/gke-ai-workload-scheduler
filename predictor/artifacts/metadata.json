@@ -1,0 +1,196 @@
+{
+  "model_version": "v1.0.0-cpu-gbr",
+  "model_artifact_sha256": "b33eed33af3bce66cf0ee8b762f777f241c8b1326817210879260f6cfbda0219",
+  "trained_at": "2026-10-24T04:49:19.349209+00:00",
+  "image_digest": "local-dev-build",
+  "feature_schema": {
+    "version": "1.0.0",
+    "features": [
+      {
+        "name": "workload_class",
+        "type": "categorical",
+        "allowed_values": [
+          "short_cpu",
+          "long_cpu",
+          "variable_size",
+          "memory_sensitive",
+          "deadline_sensitive",
+          "mixed",
+          "priority"
+        ],
+        "description": "Predefined bounded CPU workload archetype"
+      },
+      {
+        "name": "input_size",
+        "type": "float",
+        "min": 1.0,
+        "max": 2000.0,
+        "description": "Logical input work units (e.g., batch records or matrix blocks)"
+      },
+      {
+        "name": "cpu_request_milli",
+        "type": "int",
+        "min": 50,
+        "max": 4000,
+        "description": "Kubernetes Pod CPU request in millicores"
+      },
+      {
+        "name": "memory_request_mb",
+        "type": "int",
+        "min": 32,
+        "max": 8192,
+        "description": "Kubernetes Pod memory request in MiB"
+      },
+      {
+        "name": "compute_intensity",
+        "type": "float",
+        "min": 0.5,
+        "max": 15.0,
+        "description": "CPU loop complexity multiplier per input unit"
+      },
+      {
+        "name": "memory_working_set_mb",
+        "type": "int",
+        "min": 8,
+        "max": 2048,
+        "description": "Active memory buffer working set in MiB (must not exceed memory_request_mb)"
+      },
+      {
+        "name": "historical_class_mean_sec",
+        "type": "float",
+        "min": 0.1,
+        "max": 120.0,
+        "description": "Pre-execution historical mean duration for the workload class"
+      }
+    ],
+    "derived_features": [
+      "size_x_intensity",
+      "work_per_cpu_unit",
+      "memory_utilization_ratio",
+      "log_input_size"
+    ],
+    "prohibited_features": [
+      "actual_duration_sec",
+      "completed_at",
+      "holdout_label",
+      "exit_code"
+    ]
+  },
+  "feature_names": [
+    "class_short_cpu",
+    "class_long_cpu",
+    "class_variable_size",
+    "class_memory_sensitive",
+    "class_deadline_sensitive",
+    "class_mixed",
+    "class_priority",
+    "input_size",
+    "cpu_request_milli",
+    "memory_request_mb",
+    "compute_intensity",
+    "memory_working_set_mb",
+    "historical_class_mean_sec",
+    "size_x_intensity",
+    "work_per_cpu_unit",
+    "memory_utilization_ratio",
+    "log_input_size"
+  ],
+  "training_parameters": {
+    "algorithm": "GradientBoostingRegressor",
+    "n_estimators": 180,
+    "learning_rate": 0.06,
+    "max_depth": 4,
+    "min_samples_leaf": 5,
+    "subsample": 0.9,
+    "loss": "squared_error",
+    "random_state": 202601
+  },
+  "training_dataset": {
+    "seed": 202601,
+    "synthetic_sample_count": 1260,
+    "measured_sample_count": 0,
+    "total_sample_count": 1260,
+    "synthetic_fingerprint_sha256": "b659dc5114320c787d9d176dc293d5fb5274559608a220876c3a5e88965fb373",
+    "fingerprint_sha256": "b659dc5114320c787d9d176dc293d5fb5274559608a220876c3a5e88965fb373"
+  },
+  "holdout_dataset": {
+    "seed": 202602,
+    "sample_count": 350,
+    "fingerprint_sha256": "fc0892077e7eb1924a70427ea82e20d20a84fbd0082edc9ee2e9f5750f8ae962",
+    "leakage_check_passed": true
+  },
+  "training_metrics": {
+    "mae_sec": 0.1311,
+    "rmse_sec": 0.1722,
+    "r2_score": 0.9986,
+    "p95_abs_error_sec": 0.3453,
+    "max_abs_error_sec": 1.0614,
+    "sample_count": 1260
+  },
+  "holdout_metrics": {
+    "mae_sec": 0.2443,
+    "rmse_sec": 0.375,
+    "r2_score": 0.9946,
+    "p95_abs_error_sec": 0.5874,
+    "max_abs_error_sec": 3.6289,
+    "sample_count": 350
+  },
+  "baseline_comparison": {
+    "global_median_sec": 4.9726,
+    "class_medians_sec": {
+      "short_cpu": 1.4144,
+      "long_cpu": 12.0041,
+      "variable_size": 7.2304,
+      "memory_sensitive": 6.077,
+      "deadline_sensitive": 3.4508,
+      "mixed": 4.8674,
+      "priority": 4.515
+    },
+    "global_median_holdout_metrics": {
+      "mae_sec": 3.6812,
+      "rmse_sec": 5.34,
+      "r2_score": -0.1036,
+      "p95_abs_error_sec": 10.5617,
+      "max_abs_error_sec": 20.0274,
+      "sample_count": 350
+    },
+    "class_median_holdout_metrics": {
+      "mae_sec": 2.2836,
+      "rmse_sec": 3.829,
+      "r2_score": 0.4326,
+      "p95_abs_error_sec": 8.1322,
+      "max_abs_error_sec": 17.7696,
+      "sample_count": 350
+    },
+    "mae_improvement_vs_global_pct": 93.36,
+    "mae_improvement_vs_class_median_pct": 89.3,
+    "rmse_improvement_vs_class_median_pct": 90.21,
+    "outperforms_baselines": true
+  },
+  "feature_importances": {
+    "work_per_cpu_unit": 0.6532,
+    "historical_class_mean_sec": 0.1893,
+    "size_x_intensity": 0.0771,
+    "memory_working_set_mb": 0.0308,
+    "class_long_cpu": 0.0243,
+    "class_memory_sensitive": 0.0123,
+    "class_variable_size": 0.0069,
+    "class_short_cpu": 0.0026,
+    "memory_utilization_ratio": 0.002,
+    "class_mixed": 0.0003,
+    "compute_intensity": 0.0002,
+    "log_input_size": 0.0002,
+    "input_size": 0.0002,
+    "cpu_request_milli": 0.0002,
+    "class_priority": 0.0001,
+    "memory_request_mb": 0.0001,
+    "class_deadline_sensitive": 0.0001
+  },
+  "dependency_versions": {
+    "python": "3.13.16",
+    "scikit_learn": "1.5.2",
+    "numpy": "2.1.3",
+    "scipy": "1.14.1",
+    "joblib": "1.4.2"
+  }
+}

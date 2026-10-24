@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ai-workload-scheduler
+
+resources:
+  - ../../base
+
+images:
+  - name: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler
+    newName: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler
+    digest: sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08
+  - name: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor
+    newName: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor
+    digest: sha256:353705e220532916a4430c62d50fce0bf52ceb0380c3ca879243db300b4f0c39

@@ -1,0 +1,58 @@
+# Binaries and build outputs
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.txt
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+*.tfplan
+crash.log
+crash.*.log
+*.tfvars
+!*.tfvars.example
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Local transient runtime state (evidence in artifacts/test-results/ and progressive_live_gke_scaling.json is tracked)
+artifacts/state/
+artifacts/benchmarks/sim-*.json
+artifacts/benchmarks/pre_destroy_*.json
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GKE AI Workload Scheduler — Control Plane &amp; Benchmark Observatory</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-badge">GKE CPU-ONLY</span>
+      <div>
+        <h1>GKE AI Workload Scheduler</h1>
+        <p class="subtitle">AI-Assisted Batch Job Scheduling, Admission Gate &amp; Live Kubernetes Benchmark Lab</p>
+      </div>
+    </div>
+    <div class="header-telemetry">
+      <span id="k8sStatusBadge" class="chip chip-neutral">Checking Cluster...</span>
+      <span id="predictorStatusBadge" class="chip chip-neutral">Predictor...</span>
+      <span id="sseStatusBadge" class="chip chip-info">SSE Connecting</span>
+      <button id="refreshBtn" type="button" class="btn btn-secondary">Refresh State</button>
+    </div>
+  </header>
+
+  <nav class="tab-nav" aria-label="Primary dashboard views">
+    <button type="button" class="tab-btn active" data-tab="overview">01 Overview</button>
+    <button type="button" class="tab-btn" data-tab="queue">02 Workload Queue</button>
+    <button type="button" class="tab-btn" data-tab="lab">03 Scheduling Lab</button>
+    <button type="button" class="tab-btn" data-tab="comparison">04 Benchmark Comparison</button>
+    <button type="button" class="tab-btn" data-tab="explorer">05 Task Explorer</button>
+    <button type="button" class="tab-btn" data-tab="observability">06 Observability</button>
+  </nav>
+
+  <main class="container">
+    <!-- VIEW 1: OVERVIEW -->
+    <section id="view-overview" class="tab-panel active">
+      <div class="kpi-grid">
+        <article class="kpi-card">
+          <span class="kpi-label">GKE Cluster &amp; Mode</span>
+          <strong id="ovClusterMode" class="kpi-value">--</strong>
+          <small id="ovClusterMeta" class="kpi-meta">Namespace: ai-workload-scheduler</small>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Active Scheduling Policy</span>
+          <strong id="ovActivePolicy" class="kpi-value">ai_assisted</strong>
+          <small id="ovConcurrencyCap" class="kpi-meta">Concurrency Cap: 4 Jobs</small>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">ML Runtime Predictor</span>
+          <strong id="ovPredictorVersion" class="kpi-value">v1.0.0-cpu-gbr</strong>
+          <small id="ovPredictorMAE" class="kpi-meta">Holdout MAE: --</small>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Queue Depth (Waiting)</span>
+          <strong id="ovQueueDepth" class="kpi-value">0</strong>
+          <small id="ovTotalRuns" class="kpi-meta">Recorded Runs: 0</small>
+        </article>
+      </div>
+
+      <div class="card">
+        <h2>Task Lifecycle Status Distribution</h2>
+        <div id="statusCountersGrid" class="status-grid"></div>
+      </div>
+
+      <div class="card">
+        <h2>Recent Benchmark &amp; Simulation Runs</h2>
+        <div tabindex="0" role="region" aria-labelledby="recent-runs-caption" class="table-wrapper">
+          <table class="data-table recent-runs-table">
+            <caption id="recent-runs-caption">Recent benchmark executions across simulation and live GKE</caption>
+            <thead>
+              <tr>
+                <th>Run ID</th>
+                <th>Mode</th>
+                <th>Policy</th>
+                <th>Scenario (Seed)</th>
+                <th>Tasks / Cap</th>
+                <th>Makespan (s)</th>
+                <th>Mean Wait (s)</th>
+                <th>Deadline %</th>
+                <th>Pred MAE (s)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="recentRunsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: WORKLOAD QUEUE -->
+    <section id="view-queue" class="tab-panel">
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2>Ranked Workload Queue &amp; Decision Ledger</h2>
+            <p class="muted">Displays arrival sequence, predicted runtime, scheduling rank, score breakdown, and admission status.</p>
+          </div>
+          <div class="inline-controls">
+            <label for="queueRunFilter">Filter by Run:</label>
+            <select id="queueRunFilter"></select>
+          </div>
+        </div>
+        <div tabindex="0" role="region" aria-labelledby="queue-table-caption" class="table-wrapper">
+          <table class="data-table queue-table">
+            <caption id="queue-table-caption">Ranked batch tasks with predicted runtime and scheduling decision rationale</caption>
+            <thead>
+              <tr>
+                <th>Task ID</th>
+                <th>Class</th>
+                <th>Arr #</th>
+                <th>Rank #</th>
+                <th>Admit #</th>
+                <th>Prio</th>
+                <th>Deadline</th>
+                <th>CPU / Mem</th>
+                <th>Pred (s)</th>
+                <th>Status</th>
+                <th>Decision Reason</th>
+              </tr>
+            </thead>
+            <tbody id="queueTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: SCHEDULING LAB -->
+    <section id="view-lab" class="tab-panel">
+      <div class="split-grid">
+        <div class="card">
+          <h2>Configure &amp; Launch Workload Experiment</h2>
+          <form id="labForm" class="lab-form">
+            <div class="form-row">
+              <label for="labPolicy">Scheduling Policy</label>
+              <select id="labPolicy" name="policy">
+                <option value="ai_assisted">Policy E — AI-Assisted Multi-Objective (ai_assisted)</option>
+                <option value="fifo">Policy A — First In, First Out (fifo)</option>
+                <option value="sjf">Policy B — Prediction-Based Shortest Job First (sjf)</option>
+                <option value="edf">Policy C — Earliest Deadline First (edf)</option>
+                <option value="priority_aging">Policy D — Priority with Aging (priority_aging)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="labScenario">Workload Scenario</label>
+              <select id="labScenario" name="scenario">
+                <option value="deadline_sensitive">deadline_sensitive — Mixed Urgent &amp; Heavy Deadlines</option>
+                <option value="mixed">mixed — All 7 Workload Archetypes</option>
+                <option value="priority">priority — Multi-Tier Priority &amp; Starvation Test</option>
+                <option value="variable_size">variable_size — High Variance Input Scaling</option>
+                <option value="short_cpu">short_cpu — Short CPU Burst Tasks</option>
+                <option value="long_cpu">long_cpu — Long CPU Compute Tasks</option>
+                <option value="memory_sensitive">memory_sensitive — High Memory Working-Set Tasks</option>
+              </select>
+            </div>
+            <div class="form-grid-3">
+              <div class="form-row">
+                <label for="labTaskCount">Task Count</label>
+                <input id="labTaskCount" type="number" min="1" max="100" value="12" />
+              </div>
+              <div class="form-row">
+                <label for="labConcurrency">Concurrency Limit</label>
+                <input id="labConcurrency" type="number" min="1" max="8" value="4" />
+              </div>
+              <div class="form-row">
+                <label for="labSeed">Deterministic Seed</label>
+                <input id="labSeed" type="number" min="1" max="999999" value="42" />
+              </div>
+            </div>
+            <div class="button-bar">
+              <button type="button" id="btnRunSim" class="btn btn-primary">Run Offline Simulation</button>
+              <button type="button" id="btnRunAllSim" class="btn btn-secondary">Simulate All 5 Policies</button>
+              <button type="button" id="btnRunLiveGKE" class="btn btn-accent">Launch Live GKE Benchmark</button>
+            </div>
+          </form>
+          <div id="labRunOutput" class="output-banner">Select parameters and launch an offline simulation or live GKE benchmark.</div>
+        </div>
+
+        <div class="card">
+          <h2>Scheduling Policy Catalog &amp; Scoring Equations</h2>
+          <div id="policyCatalogList" class="catalog-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: BENCHMARK COMPARISON -->
+    <section id="view-comparison" class="tab-panel">
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2>Side-by-Side Policy Comparison &amp; Hypothesis Verification</h2>
+            <p class="muted">Compares identical seeded workload sets across all 5 policies. Offline simulations are explicitly distinguished from live GKE runs.</p>
+          </div>
+          <button type="button" id="btnRefreshCompare" class="btn btn-primary">Run 5-Policy Comparison (Seed 42)</button>
+        </div>
+
+        <div id="hypothesisCards" class="kpi-grid"></div>
+
+        <div tabindex="0" role="region" aria-labelledby="compare-table-caption" class="table-wrapper">
+          <table class="data-table compare-table">
+            <caption id="compare-table-caption">Side-by-side policy evaluation metrics with sample sizes and latency percentiles</caption>
+            <thead>
+              <tr>
+                <th>Policy</th>
+                <th>Mode</th>
+                <th>Sample (n)</th>
+                <th>Makespan (s)</th>
+                <th>Mean Wait (s)</th>
+                <th>p50 / p95 / p99 Wait (s)</th>
+                <th>p50 / p95 E2E (s)</th>
+                <th>Deadline Met / Total (%)</th>
+                <th>Pred MAE (s)</th>
+                <th>Jain Fairness</th>
+              </tr>
+            </thead>
+            <tbody id="compareTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: TASK EXPLORER -->
+    <section id="view-explorer" class="tab-panel">
+      <div class="card">
+        <h2>Task Explorer — Kubernetes Job Lifecycle &amp; Prediction Accuracy</h2>
+        <p class="muted">Click any task row to open the modal inspector showing score breakdown, Kubernetes Job/Pod timestamps, and container logs.</p>
+        <div tabindex="0" role="region" aria-labelledby="explorer-table-caption" class="table-wrapper">
+          <table class="data-table explorer-table">
+            <caption id="explorer-table-caption">Per-task execution telemetry comparing predicted vs actual runtime</caption>
+            <thead>
+              <tr>
+                <th>Task ID</th>
+                <th>Policy</th>
+                <th>Class</th>
+                <th>K8s Job Name</th>
+                <th>Status</th>
+                <th>Predicted (s)</th>
+                <th>Actual (s)</th>
+                <th>Abs Error (s)</th>
+                <th>Queue Wait (s)</th>
+                <th>Inspect</th>
+              </tr>
+            </thead>
+            <tbody id="explorerTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 6: OBSERVABILITY -->
+    <section id="view-observability" class="tab-panel">
+      <div class="split-grid">
+        <div class="card">
+          <h2>ML Predictor Telemetry &amp; Holdout Verification</h2>
+          <pre id="predictorMetadataBox" class="code-box">Loading predictor metadata...</pre>
+        </div>
+        <div class="card">
+          <h2>Cloud Monitoring &amp; Prometheus Metrics</h2>
+          <p class="muted">Low-cardinality Prometheus metrics scraped by GKE Managed Prometheus (PodMonitoring) and displayed on the Terraform-managed Cloud Monitoring Dashboard.</p>
+          <p><a id="cloudMonitoringLink" href="https://console.cloud.google.com/monitoring/dashboards?project=enes-turan-demo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open Cloud Monitoring Dashboard</a></p>
+          <pre id="metricsPreviewBox" class="code-box">Loading /metrics...</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL DIALOG FOR TASK INSPECTION (modern-web-guidance: light-dismiss-a-dialog) -->
+  <dialog id="taskDetailDialog" closedby="any" aria-labelledby="dialogTitle">
+    <form method="dialog" class="dialog-content">
+      <header class="dialog-header">
+        <h2 id="dialogTitle">Task Inspection</h2>
+        <button type="submit" class="btn btn-secondary">Close (Esc)</button>
+      </header>
+      <div id="dialogBody" class="dialog-body"></div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>

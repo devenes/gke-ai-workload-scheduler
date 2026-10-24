@@ -1,0 +1,56 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sample-cpu-worker-job
+  namespace: ai-workload-scheduler
+  labels:
+    app.kubernetes.io/name: gke-ai-workload-scheduler
+    app.kubernetes.io/component: benchmark-worker
+    scheduler.gke.io/class: short_cpu
+    scheduler.gke.io/policy: ai_assisted
+spec:
+  backoffLimit: 1
+  activeDeadlineSeconds: 45
+  ttlSecondsAfterFinished: 600
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: gke-ai-workload-scheduler
+        app.kubernetes.io/component: benchmark-worker
+    spec:
+      serviceAccountName: scheduler-worker-sa
+      automountServiceAccountToken: false
+      restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: worker
+          image: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler@sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08
+          command: ["/app/scheduler-worker"]
+          args:
+            - "--task-id=sample-task-001"
+            - "--workload-class=short_cpu"
+            - "--input-size=40.0"
+            - "--compute-intensity=2.5"
+            - "--memory-working-set-mb=32"
+            - "--cpu-request-milli=200"
+            - "--target-duration-sec=1.75"
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "128Mi"
+            limits:
+              cpu: "400m"
+              memory: "192Mi"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65532
+            runAsGroup: 65532
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]

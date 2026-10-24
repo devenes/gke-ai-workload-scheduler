@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ai-workload-scheduler
+  labels:
+    app.kubernetes.io/name: gke-ai-workload-scheduler
+    project: gke-ai-workload-scheduler
+    environment: demo
+    managed-by: kustomize

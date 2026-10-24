@@ -1,0 +1,130 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scheduler-controller
+  namespace: ai-workload-scheduler
+  labels:
+    app.kubernetes.io/name: gke-ai-workload-scheduler
+    app.kubernetes.io/component: scheduler-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: gke-ai-workload-scheduler
+      app.kubernetes.io/component: scheduler-controller
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: gke-ai-workload-scheduler
+        app.kubernetes.io/component: scheduler-controller
+    spec:
+      serviceAccountName: scheduler-controller-sa
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: controller
+          image: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler:v1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          env:
+            - name: PROJECT_ID
+              value: "enes-turan-demo"
+            - name: REGION
+              value: "us-west4"
+            - name: ZONE
+              value: "us-west4-a"
+            - name: CLUSTER_NAME
+              value: "gke-ai-workload-scheduler"
+            - name: K8S_NAMESPACE
+              value: "ai-workload-scheduler"
+            - name: HTTP_ADDR
+              value: ":8080"
+            - name: PREDICTOR_URL
+              value: "http://runtime-predictor.ai-workload-scheduler.svc.cluster.local:8081"
+            - name: WORKER_IMAGE
+              value: "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler@sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08"
+            - name: WORKER_SERVICE_ACCOUNT
+              value: "scheduler-worker-sa"
+            - name: STATE_DIR
+              value: "/var/lib/scheduler/state"
+            - name: ARTIFACTS_DIR
+              value: "/var/lib/scheduler/artifacts"
+            - name: GCS_BUCKET
+              value: "enes-turan-demo-ai-workload-scheduler-artifacts"
+            - name: DEFAULT_POLICY
+              value: "ai_assisted"
+            - name: MAX_CONCURRENT_JOBS
+              value: "4"
+            - name: MAX_CPU_BUDGET_MILLI
+              value: "2000"
+            - name: MAX_MEMORY_BUDGET_MB
+              value: "4096"
+            - name: ENABLE_CRD_STORE
+              value: "true"
+            - name: APP_IMAGE_DIGEST
+              value: "sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65532
+            runAsGroup: 65532
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 10
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            timeoutSeconds: 2
+          volumeMounts:
+            - name: scheduler-data
+              mountPath: /var/lib/scheduler
+            - name: tmp-dir
+              mountPath: /tmp
+      volumes:
+        - name: scheduler-data
+          emptyDir: {}
+        - name: tmp-dir
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scheduler-controller
+  namespace: ai-workload-scheduler
+  labels:
+    app.kubernetes.io/name: gke-ai-workload-scheduler
+    app.kubernetes.io/component: scheduler-controller
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: gke-ai-workload-scheduler
+    app.kubernetes.io/component: scheduler-controller
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+      protocol: TCP
