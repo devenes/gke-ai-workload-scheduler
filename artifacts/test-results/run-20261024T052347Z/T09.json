@@ -1,0 +1,45 @@
+{
+  "test_id": "T09",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "The REST API and embedded Web UI enforce input validation, expose queue and benchmark controls, and serve standards-compliant HTML/CSS/JS.",
+  "preconditions": [
+    "Scheduler HTTP server reachable"
+  ],
+  "acceptance_criteria": [
+    "UI HTML served with HTTP 200",
+    "Invalid policy and out-of-range task count rejected with HTTP 400"
+  ],
+  "measured_outcomes": {
+    "ui_served_and_contains_dialog_closedby": true,
+    "invalid_policy_http_status": 400,
+    "excessive_task_count_http_status": 400,
+    "valid_policy_select_http_status": 200,
+    "overview_http_status": 200
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T09.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T09-api-ui-validation.json"
+  ],
+  "limitations": [
+    "Accessed via local port-forward"
+  ],
+  "started_at": "2026-10-24T05:24:32.813660+00:00",
+  "finished_at": "2026-10-24T05:24:40.420554+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "test_id": "T14",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Deadline attainment, latency percentiles (p50/p95/p99), Jain's fairness index, and starvation safeguards are accurately computed.",
+  "preconditions": [
+    "Scheduler engine active"
+  ],
+  "acceptance_criteria": [
+    "AI-assisted and EDF achieve higher deadline success rate than FIFO",
+    "Zero starvation across all policies"
+  ],
+  "measured_outcomes": {
+    "deadline_success_rates_pct": {
+      "ai_assisted": 76,
+      "edf": 72,
+      "fifo": 28,
+      "priority_aging": 48,
+      "sjf": 52
+    },
+    "priority_fairness_and_starvation": {
+      "ai_assisted": {
+        "jains_fairness_index": 0.5542,
+        "low_priority_max_wait_sec": 26.4368,
+        "starvation_detected": false
+      },
+      "edf": {
+        "jains_fairness_index": 0.5205,
+        "low_priority_max_wait_sec": 18.0623,
+        "starvation_detected": false
+      },
+      "fifo": {
+        "jains_fairness_index": 0.5172,
+        "low_priority_max_wait_sec": 11.8706,
+        "starvation_detected": false
+      },
+      "priority_aging": {
+        "jains_fairness_index": 0.5224,
+        "low_priority_max_wait_sec": 37.9203,
+        "starvation_detected": false
+      },
+      "sjf": {
+        "jains_fairness_index": 0.6039,
+        "low_priority_max_wait_sec": 11.8706,
+        "starvation_detected": false
+      }
+    }
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T14.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T14-deadline-and-fairness.json"
+  ],
+  "limitations": [
+    "Sample size n=25 reported alongside percentiles"
+  ],
+  "started_at": "2026-10-24T05:32:49.203371+00:00",
+  "finished_at": "2026-10-24T05:32:56.146047+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "test_id": "T13",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Duplicate task submissions are deduplicated via IdempotencyKey and concurrent updates are protected by ResourceVersion optimistic locking.",
+  "preconditions": [
+    "Durable queue store active"
+  ],
+  "acceptance_criteria": [
+    "Duplicate submission returns deduplicated_count=1",
+    "Stale ResourceVersion update returns ErrConflict"
+  ],
+  "measured_outcomes": {
+    "first_submission_deduplicated_count": 0,
+    "second_duplicate_submission_deduplicated_count": 1,
+    "optimistic_concurrency_unit_test_exit_code": 0
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T13.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T13-idempotency.json"
+  ],
+  "limitations": [
+    "Tested via API and Go concurrency unit tests"
+  ],
+  "started_at": "2026-10-24T05:26:48.872789+00:00",
+  "finished_at": "2026-10-24T05:26:55.868922+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

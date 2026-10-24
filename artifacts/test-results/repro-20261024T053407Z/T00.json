@@ -1,0 +1,54 @@
+{
+  "test_id": "T00",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "The GCP project enes-turan-demo, zonal GKE Standard cluster gke-ai-workload-scheduler (us-west4-a), CPU-only node pool, and namespace ai-workload-scheduler are active and healthy.",
+  "preconditions": [
+    "Terraform apply completed",
+    "kubectl context configured"
+  ],
+  "acceptance_criteria": [
+    "Cluster status is RUNNING",
+    "At least 1 Ready CPU node with 0 GPUs/TPUs",
+    "Controller connected to Kubernetes API"
+  ],
+  "measured_outcomes": {
+    "cluster_status": "RUNNING",
+    "cluster_location": "us-west4-a",
+    "node_count": 1,
+    "node_machine_types": [
+      "e2-standard-4"
+    ],
+    "accelerator_nodes_detected": 0,
+    "namespace": "ai-workload-scheduler",
+    "controller_connected": true,
+    "predictor_healthy": true
+  },
+  "evidence_paths": [
+    "artifacts/test-results/repro-20261024T053407Z/T00.json",
+    "artifacts/test-results/repro-20261024T053407Z/logs/T00-cluster-describe.json",
+    "artifacts/test-results/repro-20261024T053407Z/logs/T00-nodes.json",
+    "artifacts/test-results/repro-20261024T053407Z/logs/T00-overview.json"
+  ],
+  "limitations": [
+    "Single-zone demonstration cluster in us-west4-a"
+  ],
+  "started_at": "2026-10-24T05:34:08.228050+00:00",
+  "finished_at": "2026-10-24T05:34:16.463133+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

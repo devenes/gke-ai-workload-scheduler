@@ -1,0 +1,53 @@
+{
+  "test_id": "T01",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "The workload generator produces identical SHA-256 batch fingerprints and task sequences across repeated calls with the same seed for all 7 workload classes.",
+  "preconditions": [
+    "Scheduler API running"
+  ],
+  "acceptance_criteria": [
+    "Identical SHA-256 fingerprints across regenerations for all 7 classes",
+    "Distinct fingerprints for different seeds"
+  ],
+  "measured_outcomes": {
+    "classes_verified": 7,
+    "identical_across_regenerations": true,
+    "distinct_across_different_seeds": true,
+    "fingerprints_seed42": {
+      "short_cpu": "c3aef6fe571ba10a656c6dd079f5200c9bfcad53a4beee492e1cdc83b6575932",
+      "long_cpu": "a4886ce0d1491c2e0c9a220fc11d8c8b899f704710ffb88eee0f05e95db10a51",
+      "variable_size": "f2e4a94f9496f3f8042b032150f42c0991dc5c066efa9929dc0fb9b238944f1b",
+      "memory_sensitive": "7ffbc890a6670d918f291e0fd89703450093372df6d400c09430c0bee17a0a22",
+      "deadline_sensitive": "098694e7dee49b16747510ea7827897dcd96963f7d7f27072289dd4cde76dcf7",
+      "mixed": "8970702032625055c8da5d1b396b8dc6f96852bf4824cea9a0163a543bc850ae",
+      "priority": "d030e094bf3f04683bea194a2b49c785e526ed18f40d0f446fd67720dfca9de1"
+    },
+    "mixed_seed99_fingerprint": "3211085806a8e8c8a496e19efda4fab6f6c0e3a87d4f224cb0f819ae504eba21"
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T01.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T01-generator-fingerprints.json"
+  ],
+  "limitations": [
+    "Synthetic calibrated CPU/memory task parameters"
+  ],
+  "started_at": "2026-10-24T05:23:54.315029+00:00",
+  "finished_at": "2026-10-24T05:24:06.705289+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

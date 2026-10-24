@@ -1,0 +1,31 @@
+{
+  "ui_ok": true,
+  "bad_policy_response": {
+    "error": "invalid scheduling policy \"invalid_policy_name\"",
+    "status": 400
+  },
+  "bad_count_response": {
+    "error": "task_count (99999) must be in [1, 200]",
+    "status": 400
+  },
+  "select_policy_response": {
+    "active_policy": "ai_assisted",
+    "status": "updated",
+    "weights": {
+      "runtime_weight": 3.5,
+      "reference_duration_sec": 10,
+      "deadline_weight": 6,
+      "slack_scale_sec": 8,
+      "grace_slack_sec": 0.35,
+      "doomed_deadline_penalty": 1.5,
+      "resource_weight": 1,
+      "priority_weight": 2.5,
+      "aging_weight": 1.4,
+      "aging_tau_sec": 5,
+      "max_aging_multiple": 2.5,
+      "priority_aging_points_per_tau": 1.5,
+      "cpu_budget_milli": 2000,
+      "memory_budget_mb": 4096
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "run1_seed42": {
+    "short_cpu": "c3aef6fe571ba10a656c6dd079f5200c9bfcad53a4beee492e1cdc83b6575932",
+    "long_cpu": "a4886ce0d1491c2e0c9a220fc11d8c8b899f704710ffb88eee0f05e95db10a51",
+    "variable_size": "f2e4a94f9496f3f8042b032150f42c0991dc5c066efa9929dc0fb9b238944f1b",
+    "memory_sensitive": "7ffbc890a6670d918f291e0fd89703450093372df6d400c09430c0bee17a0a22",
+    "deadline_sensitive": "098694e7dee49b16747510ea7827897dcd96963f7d7f27072289dd4cde76dcf7",
+    "mixed": "8970702032625055c8da5d1b396b8dc6f96852bf4824cea9a0163a543bc850ae",
+    "priority": "d030e094bf3f04683bea194a2b49c785e526ed18f40d0f446fd67720dfca9de1"
+  },
+  "run2_seed42": {
+    "short_cpu": "c3aef6fe571ba10a656c6dd079f5200c9bfcad53a4beee492e1cdc83b6575932",
+    "long_cpu": "a4886ce0d1491c2e0c9a220fc11d8c8b899f704710ffb88eee0f05e95db10a51",
+    "variable_size": "f2e4a94f9496f3f8042b032150f42c0991dc5c066efa9929dc0fb9b238944f1b",
+    "memory_sensitive": "7ffbc890a6670d918f291e0fd89703450093372df6d400c09430c0bee17a0a22",
+    "deadline_sensitive": "098694e7dee49b16747510ea7827897dcd96963f7d7f27072289dd4cde76dcf7",
+    "mixed": "8970702032625055c8da5d1b396b8dc6f96852bf4824cea9a0163a543bc850ae",
+    "priority": "d030e094bf3f04683bea194a2b49c785e526ed18f40d0f446fd67720dfca9de1"
+  },
+  "mixed_seed99": "3211085806a8e8c8a496e19efda4fab6f6c0e3a87d4f224cb0f819ae504eba21"
+}

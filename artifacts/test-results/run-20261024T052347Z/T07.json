@@ -1,0 +1,46 @@
+{
+  "test_id": "T07",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Policy E (AI-Assisted) uses real ML runtime predictions in its multi-objective score and falls back deterministically when the predictor is unavailable.",
+  "preconditions": [
+    "Runtime predictor and scheduler controller active"
+  ],
+  "acceptance_criteria": [
+    "Normal run uses v1.0.0-cpu-gbr with 0 fallbacks",
+    "Simulated predictor outage triggers fallback_used=true on 100% of tasks"
+  ],
+  "measured_outcomes": {
+    "normal_predictor_model_version": "v1.0.0-cpu-gbr",
+    "normal_fallback_count": 0,
+    "normal_deadline_success_rate_pct": 58.3333,
+    "outage_fallback_model_version": "fallback-heuristic-v1",
+    "outage_fallback_count": 12,
+    "all_outage_tasks_explicitly_flagged_fallback": true
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T07.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T07-ai-and-fallback.json"
+  ],
+  "limitations": [
+    "Simulated outage toggled via API"
+  ],
+  "started_at": "2026-10-24T05:24:16.089308+00:00",
+  "finished_at": "2026-10-24T05:24:19.336920+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

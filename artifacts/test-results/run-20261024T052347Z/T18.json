@@ -1,0 +1,42 @@
+{
+  "test_id": "T18",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Safe reproducibility reruns produce identical batch fingerprints, model metadata, and deterministic policy comparison metrics without overwriting prior evidence.",
+  "preconditions": [
+    "Evidence directory initialized"
+  ],
+  "acceptance_criteria": [
+    "Repeated 5-policy comparison runs with seed=42 produce identical SHA-256 fingerprints and metrics"
+  ],
+  "measured_outcomes": {
+    "batch_fingerprint_sha256": "8d61d0faf56696d493bd933c681977c309f78fb322a3b89e4857c6b73b71a095",
+    "fingerprint_reproducible": true,
+    "all_5_policy_metrics_reproducible": true
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T18.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T18-reproducibility-check.json"
+  ],
+  "limitations": [
+    "Reproducibility mode executes non-destructive subset"
+  ],
+  "started_at": "2026-10-24T05:27:27.098729+00:00",
+  "finished_at": "2026-10-24T05:27:33.936279+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

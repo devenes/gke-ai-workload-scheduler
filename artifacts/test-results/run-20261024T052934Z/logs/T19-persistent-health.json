@@ -1,0 +1,26 @@
+{
+  "cluster_status": "RUNNING",
+  "deployments_ready": {
+    "runtime-predictor": "1/1",
+    "scheduler-controller": "1/1"
+  },
+  "healthz": {
+    "active_policy": "ai_assisted",
+    "app_image_digest": "sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_connected": true,
+    "max_concurrent_jobs": 4,
+    "namespace": "ai-workload-scheduler",
+    "predictor_health": {
+      "holdout_mae_sec": 0.2443,
+      "model_version": "v1.0.0-cpu-gbr",
+      "status": "ok",
+      "trained_at": "2026-10-24T05:18:13.943192+00:00"
+    },
+    "predictor_status": "healthy",
+    "project_id": "enes-turan-demo",
+    "service": "gke-ai-workload-scheduler",
+    "status": "ok",
+    "timestamp": "2026-10-24T05:33:38Z"
+  }
+}

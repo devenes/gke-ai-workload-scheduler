@@ -1,0 +1,77 @@
+{
+  "active_policy": "ai_assisted",
+  "checked_at": "2026-10-24T05:23:54Z",
+  "cluster": {
+    "connected": true,
+    "mode": "live_gke",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "namespace": "ai-workload-scheduler",
+    "node_count": 1,
+    "nodes": [
+      {
+        "name": "gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-003q",
+        "machine_type": "e2-standard-4",
+        "zone": "us-west4-a",
+        "cpu_capacity": "4",
+        "cpu_allocatable": "3920m",
+        "memory_capacity": "16379988Ki",
+        "memory_allocatable": "13591636Ki",
+        "ready": true
+      }
+    ],
+    "active_job_count": 0,
+    "succeeded_job_count": 0,
+    "failed_job_count": 0,
+    "deployments_ready": {
+      "runtime-predictor": "1/1",
+      "scheduler-controller": "1/1"
+    },
+    "checked_at": "2026-10-24T05:23:54.171473477Z"
+  },
+  "concurrency_limit": 4,
+  "cpu_budget_milli": 2000,
+  "memory_budget_mb": 4096,
+  "monitoring_dashboard": "https://console.cloud.google.com/monitoring/dashboards?project=enes-turan-demo",
+  "predictor_health": {
+    "holdout_mae_sec": 0.2443,
+    "model_version": "v1.0.0-cpu-gbr",
+    "status": "ok",
+    "trained_at": "2026-10-24T05:18:13.943192+00:00"
+  },
+  "predictor_healthy": true,
+  "predictor_version": "v1.0.0-cpu-gbr",
+  "project_id": "enes-turan-demo",
+  "queue_depth": 0,
+  "recent_runs": [],
+  "region": "us-west4",
+  "status": "ok",
+  "status_counts": {
+    "Admitted": 0,
+    "Cancelled": 0,
+    "Failed": 0,
+    "Pending": 0,
+    "Ranked": 0,
+    "Running": 0,
+    "Submitted": 0,
+    "Succeeded": 0,
+    "TimedOut": 0
+  },
+  "total_runs": 0,
+  "weights": {
+    "runtime_weight": 3.5,
+    "reference_duration_sec": 10,
+    "deadline_weight": 6,
+    "slack_scale_sec": 8,
+    "grace_slack_sec": 0.35,
+    "doomed_deadline_penalty": 1.5,
+    "resource_weight": 1,
+    "priority_weight": 2.5,
+    "aging_weight": 1.4,
+    "aging_tau_sec": 5,
+    "max_aging_multiple": 2.5,
+    "priority_aging_points_per_tau": 1.5,
+    "cpu_budget_milli": 2000,
+    "memory_budget_mb": 4096
+  },
+  "zone": "us-west4-a"
+}

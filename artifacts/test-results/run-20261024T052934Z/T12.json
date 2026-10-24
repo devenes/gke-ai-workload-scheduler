@@ -1,0 +1,125 @@
+{
+  "test_id": "T12",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Across live GKE benchmark runs of all 5 policies on identical seeded workloads, stored ML predictions match task IDs and achieve lower MAE than the historical class baseline.",
+  "preconditions": [
+    "Live GKE cluster and runtime-predictor connected"
+  ],
+  "acceptance_criteria": [
+    "All 5 policies complete live GKE runs on seed=108",
+    "ML prediction MAE < class baseline MAE on live GKE execution"
+  ],
+  "measured_outcomes": {
+    "live_gke_policy_comparison": {
+      "fifo": {
+        "makespan_sec": 12.1021,
+        "mean_queue_wait_sec": 4.1086,
+        "deadline_success_rate_pct": 66.6667,
+        "prediction_mae_sec": 0.4455
+      },
+      "sjf": {
+        "makespan_sec": 13.7158,
+        "mean_queue_wait_sec": 3.4926,
+        "deadline_success_rate_pct": 83.3333,
+        "prediction_mae_sec": 0.3788
+      },
+      "edf": {
+        "makespan_sec": 16.2915,
+        "mean_queue_wait_sec": 4.4797,
+        "deadline_success_rate_pct": 83.3333,
+        "prediction_mae_sec": 0.5359
+      },
+      "priority_aging": {
+        "makespan_sec": 15.3339,
+        "mean_queue_wait_sec": 4.372,
+        "deadline_success_rate_pct": 83.3333,
+        "prediction_mae_sec": 0.3206
+      },
+      "ai_assisted": {
+        "makespan_sec": 13.5359,
+        "mean_queue_wait_sec": 3.8045,
+        "deadline_success_rate_pct": 83.3333,
+        "prediction_mae_sec": 0.3206
+      }
+    },
+    "ai_run_prediction_mae_sec": 0.3206,
+    "ai_run_prediction_rmse_sec": 0.3955,
+    "baseline_class_median_mae_sec": 1.9667,
+    "per_task_predicted_vs_actual": [
+      {
+        "task_id": "gke-ai_assisted-deadline_sensitive-s108-n6-c3-9950-001",
+        "workload_class": "deadline_sensitive",
+        "predicted_duration_sec": 5.7889,
+        "actual_duration_sec": 5,
+        "abs_error_sec": 0.7889,
+        "historical_class_mean_sec": 3.9
+      },
+      {
+        "task_id": "gke-ai_assisted-deadline_sensitive-s108-n6-c3-9950-002",
+        "workload_class": "deadline_sensitive",
+        "predicted_duration_sec": 1.6747,
+        "actual_duration_sec": 2,
+        "abs_error_sec": 0.3253,
+        "historical_class_mean_sec": 3.9
+      },
+      {
+        "task_id": "gke-ai_assisted-deadline_sensitive-s108-n6-c3-9950-003",
+        "workload_class": "deadline_sensitive",
+        "predicted_duration_sec": 1.7404,
+        "actual_duration_sec": 2,
+        "abs_error_sec": 0.2596,
+        "historical_class_mean_sec": 3.9
+      },
+      {
+        "task_id": "gke-ai_assisted-deadline_sensitive-s108-n6-c3-9950-004",
+        "workload_class": "deadline_sensitive",
+        "predicted_duration_sec": 6.7001,
+        "actual_duration_sec": 7,
+        "abs_error_sec": 0.2999,
+        "historical_class_mean_sec": 3.9
+      },
+      {
+        "task_id": "gke-ai_assisted-deadline_sensitive-s108-n6-c3-9950-005",
+        "workload_class": "deadline_sensitive",
+        "predicted_duration_sec": 1.771,
+        "actual_duration_sec": 2,
+        "abs_error_sec": 0.229,
+        "historical_class_mean_sec": 3.9
+      },
+      {
+        "task_id": "gke-ai_assisted-deadline_sensitive-s108-n6-c3-9950-006",
+        "workload_class": "deadline_sensitive",
+        "predicted_duration_sec": 1.9792,
+        "actual_duration_sec": 2,
+        "abs_error_sec": 0.0208,
+        "historical_class_mean_sec": 3.9
+      }
+    ]
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T12.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T12-live-5policy-comparison.json"
+  ],
+  "limitations": [
+    "Live GKE execution includes minor container startup/CPU scheduling variance"
+  ],
+  "started_at": "2026-10-24T05:31:19.532638+00:00",
+  "finished_at": "2026-10-24T05:32:46.569138+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

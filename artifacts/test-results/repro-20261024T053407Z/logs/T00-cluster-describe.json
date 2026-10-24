@@ -1,0 +1,339 @@
+{
+  "addonsConfig": {
+    "dnsCacheConfig": {
+      "enabled": true
+    },
+    "gcePersistentDiskCsiDriverConfig": {
+      "enabled": true
+    },
+    "gcpFilestoreCsiDriverConfig": {
+      "enabled": true
+    },
+    "kubernetesDashboard": {
+      "disabled": true
+    },
+    "networkPolicyConfig": {
+      "disabled": true
+    },
+    "nodeReadinessConfig": {}
+  },
+  "anonymousAuthenticationConfig": {
+    "mode": "LIMITED"
+  },
+  "autopilot": {},
+  "autoscaling": {
+    "autoprovisioningNodePoolDefaults": {
+      "imageType": "COS_CONTAINERD",
+      "management": {
+        "autoRepair": true,
+        "autoUpgrade": true
+      },
+      "oauthScopes": [
+        "https://www.googleapis.com/auth/devstorage.read_only",
+        "https://www.googleapis.com/auth/logging.write",
+        "https://www.googleapis.com/auth/monitoring",
+        "https://www.googleapis.com/auth/service.management.readonly",
+        "https://www.googleapis.com/auth/servicecontrol",
+        "https://www.googleapis.com/auth/trace.append"
+      ],
+      "serviceAccount": "default"
+    },
+    "autoscalingProfile": "BALANCED"
+  },
+  "binaryAuthorization": {},
+  "clusterIpv4Cidr": "10.52.0.0/16",
+  "controlPlaneEgress": {
+    "mode": "VIA_CONTROL_PLANE"
+  },
+  "controlPlaneEndpointsConfig": {
+    "dnsEndpointConfig": {
+      "allowExternalTraffic": false,
+      "enableK8sCertsViaDns": false,
+      "enableK8sTokensViaDns": false,
+      "endpoint": "gke-06a3bbb290fe470e93db2c01770b83aacb88-697289276442.us-west4-a.gke.goog"
+    },
+    "ipEndpointsConfig": {
+      "authorizedNetworksConfig": {
+        "privateEndpointEnforcementEnabled": true
+      },
+      "enablePublicEndpoint": true,
+      "enabled": true,
+      "privateEndpoint": "172.16.0.50",
+      "privateEndpointSubnetwork": "projects/enes-turan-demo/regions/us-west4/subnetworks/gke-gke-ai-workload-scheduler-cdff54c9-pe-subnet",
+      "publicEndpoint": "136.85.156.99"
+    }
+  },
+  "createTime": "2026-10-24T05:07:27+00:00",
+  "currentMasterVersion": "1.36.4-gke.1495002",
+  "currentNodeCount": 1,
+  "currentNodeVersion": "1.36.4-gke.1495002",
+  "databaseEncryption": {
+    "currentState": "CURRENT_STATE_DECRYPTED",
+    "state": "DECRYPTED"
+  },
+  "defaultMaxPodsConstraint": {
+    "maxPodsPerNode": "110"
+  },
+  "endpoint": "136.85.156.99",
+  "enterpriseConfig": {
+    "clusterTier": "STANDARD"
+  },
+  "etag": "06464dd2-483e-45e8-9025-e934219d9156",
+  "id": "06a3bbb290fe470e93db2c01770b83aacb889b1df0d04807bca9a2256fbe0bf7",
+  "initialClusterVersion": "1.36.4-gke.1495002",
+  "initialNodeCount": 1,
+  "instanceGroupUrls": [
+    "https://www.googleapis.com/compute/v1/projects/enes-turan-demo/zones/us-west4-a/instanceGroupManagers/gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-grp"
+  ],
+  "ipAllocationPolicy": {
+    "clusterIpv4Cidr": "10.52.0.0/16",
+    "clusterIpv4CidrBlock": "10.52.0.0/16",
+    "clusterSecondaryRangeName": "pods",
+    "defaultPodIpv4RangeUtilization": 0.0039,
+    "networkTierConfig": {
+      "networkTier": "NETWORK_TIER_DEFAULT"
+    },
+    "podCidrOverprovisionConfig": {},
+    "servicesIpv4Cidr": "10.53.0.0/20",
+    "servicesIpv4CidrBlock": "10.53.0.0/20",
+    "servicesSecondaryRangeName": "services",
+    "stackType": "IPV4",
+    "useIpAliases": true
+  },
+  "labelFingerprint": "3761cca0",
+  "legacyAbac": {},
+  "location": "us-west4-a",
+  "locations": [
+    "us-west4-a"
+  ],
+  "loggingConfig": {
+    "componentConfig": {
+      "enableComponents": [
+        "SYSTEM_COMPONENTS",
+        "WORKLOADS"
+      ]
+    }
+  },
+  "loggingService": "logging.googleapis.com/kubernetes",
+  "maintenancePolicy": {
+    "resourceVersion": "e3b0c442"
+  },
+  "masterAuth": {
+    "clientCertificateConfig": {},
+    "clusterCaCertificate": "<REDACTED_CLUSTER_CA_CERTIFICATE>"
+  },
+  "masterAuthorizedNetworksConfig": {
+    "privateEndpointEnforcementEnabled": true
+  },
+  "monitoringConfig": {
+    "advancedDatapathObservabilityConfig": {},
+    "componentConfig": {
+      "enableComponents": [
+        "SYSTEM_COMPONENTS"
+      ]
+    },
+    "managedPrometheusConfig": {
+      "enabled": true
+    }
+  },
+  "monitoringService": "monitoring.googleapis.com/kubernetes",
+  "name": "gke-ai-workload-scheduler",
+  "network": "gke-ai-workload-scheduler-vpc",
+  "networkConfig": {
+    "defaultEnablePrivateNodes": true,
+    "defaultSnatStatus": {},
+    "network": "projects/enes-turan-demo/global/networks/gke-ai-workload-scheduler-vpc",
+    "serviceExternalIpsConfig": {},
+    "subnetwork": "projects/enes-turan-demo/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet"
+  },
+  "nodeConfig": {
+    "bootDisk": {
+      "diskType": "pd-balanced",
+      "sizeGb": "50"
+    },
+    "diskSizeGb": 50,
+    "diskType": "pd-balanced",
+    "effectiveCgroupMode": "EFFECTIVE_CGROUP_MODE_V2",
+    "imageType": "COS_CONTAINERD",
+    "kubeletConfig": {
+      "insecureKubeletReadonlyPortEnabled": false,
+      "maxParallelImagePulls": 3
+    },
+    "labels": {
+      "environment": "demo",
+      "managed-by": "terraform",
+      "project": "gke-ai-workload-scheduler",
+      "scheduler.gke.io/node-role": "cpu-batch-worker"
+    },
+    "loggingConfig": {},
+    "machineType": "e2-standard-4",
+    "metadata": {
+      "disable-legacy-endpoints": "true"
+    },
+    "nodeImageConfig": {
+      "image": "gke-1364-gke1495002-cos-129-19506-448-20-c-pre",
+      "imageProject": "gke-node-images"
+    },
+    "oauthScopes": [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ],
+    "resourceLabels": {
+      "goog-gke-node-pool-provisioning-model": "on-demand"
+    },
+    "serviceAccount": "ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com",
+    "shieldedInstanceConfig": {
+      "enableIntegrityMonitoring": true,
+      "enableSecureBoot": true
+    },
+    "windowsNodeConfig": {},
+    "workloadMetadataConfig": {
+      "mode": "GKE_METADATA"
+    }
+  },
+  "nodeCreationConfig": {
+    "nodeCreationMode": "VIA_KUBELET"
+  },
+  "nodePoolAutoConfig": {
+    "nodeKubeletConfig": {
+      "insecureKubeletReadonlyPortEnabled": false
+    }
+  },
+  "nodePoolDefaults": {
+    "nodeConfigDefaults": {
+      "loggingConfig": {
+        "variantConfig": {
+          "variant": "DEFAULT"
+        }
+      },
+      "nodeKubeletConfig": {
+        "insecureKubeletReadonlyPortEnabled": false
+      }
+    }
+  },
+  "nodePools": [
+    {
+      "config": {
+        "bootDisk": {
+          "diskType": "pd-balanced",
+          "sizeGb": "50"
+        },
+        "diskSizeGb": 50,
+        "diskType": "pd-balanced",
+        "effectiveCgroupMode": "EFFECTIVE_CGROUP_MODE_V2",
+        "imageType": "COS_CONTAINERD",
+        "kubeletConfig": {
+          "insecureKubeletReadonlyPortEnabled": false,
+          "maxParallelImagePulls": 3
+        },
+        "labels": {
+          "environment": "demo",
+          "managed-by": "terraform",
+          "project": "gke-ai-workload-scheduler",
+          "scheduler.gke.io/node-role": "cpu-batch-worker"
+        },
+        "loggingConfig": {},
+        "machineType": "e2-standard-4",
+        "metadata": {
+          "disable-legacy-endpoints": "true"
+        },
+        "nodeImageConfig": {
+          "image": "gke-1364-gke1495002-cos-129-19506-448-20-c-pre",
+          "imageProject": "gke-node-images"
+        },
+        "oauthScopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ],
+        "resourceLabels": {
+          "goog-gke-node-pool-provisioning-model": "on-demand"
+        },
+        "serviceAccount": "ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com",
+        "shieldedInstanceConfig": {
+          "enableIntegrityMonitoring": true,
+          "enableSecureBoot": true
+        },
+        "windowsNodeConfig": {},
+        "workloadMetadataConfig": {
+          "mode": "GKE_METADATA"
+        }
+      },
+      "etag": "1ecdb139-f132-4042-99b7-e1dd1766b23f",
+      "initialNodeCount": 1,
+      "instanceGroupUrls": [
+        "https://www.googleapis.com/compute/v1/projects/enes-turan-demo/zones/us-west4-a/instanceGroupManagers/gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-grp"
+      ],
+      "kubeletCertInfo": {
+        "tpmBootstrapCertExpireTime": "2031-10-23T05:14:07Z"
+      },
+      "locations": [
+        "us-west4-a"
+      ],
+      "management": {
+        "autoRepair": true,
+        "autoUpgrade": true
+      },
+      "maxPodsConstraint": {
+        "maxPodsPerNode": "110"
+      },
+      "name": "cpu-worker-pool",
+      "networkConfig": {
+        "enablePrivateNodes": true,
+        "networkTierConfig": {
+          "networkTier": "NETWORK_TIER_DEFAULT"
+        },
+        "podIpv4CidrBlock": "10.52.0.0/16",
+        "podIpv4RangeUtilization": 0.0039,
+        "podRange": "pods",
+        "subnetwork": "projects/enes-turan-demo/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet"
+      },
+      "podIpv4CidrSize": 24,
+      "selfLink": "https://container.googleapis.com/v1/projects/enes-turan-demo/zones/us-west4-a/clusters/gke-ai-workload-scheduler/nodePools/cpu-worker-pool",
+      "status": "RUNNING",
+      "upgradeSettings": {
+        "maxSurge": 1,
+        "strategy": "SURGE"
+      },
+      "version": "1.36.4-gke.1495002"
+    }
+  ],
+  "notificationConfig": {
+    "pubsub": {}
+  },
+  "podAutoscaling": {
+    "hpaProfile": "PERFORMANCE"
+  },
+  "privateClusterConfig": {
+    "enablePrivateNodes": true,
+    "masterIpv4CidrBlock": "172.16.0.48/28",
+    "privateEndpoint": "172.16.0.50",
+    "publicEndpoint": "136.85.156.99"
+  },
+  "rbacBindingConfig": {
+    "enableInsecureBindingSystemAuthenticated": true,
+    "enableInsecureBindingSystemUnauthenticated": true
+  },
+  "releaseChannel": {
+    "channel": "REGULAR"
+  },
+  "resourceLabels": {
+    "environment": "demo",
+    "goog-terraform-provisioned": "true",
+    "managed-by": "terraform",
+    "project": "gke-ai-workload-scheduler"
+  },
+  "securityPostureConfig": {
+    "mode": "BASIC",
+    "vulnerabilityMode": "VULNERABILITY_MODE_UNSPECIFIED"
+  },
+  "selfLink": "https://container.googleapis.com/v1/projects/enes-turan-demo/zones/us-west4-a/clusters/gke-ai-workload-scheduler",
+  "servicesIpv4Cidr": "10.53.0.0/20",
+  "shieldedNodes": {
+    "enabled": true
+  },
+  "status": "RUNNING",
+  "subnetwork": "gke-ai-workload-scheduler-subnet",
+  "userManagedKeysConfig": {},
+  "workloadIdentityConfig": {
+    "workloadPool": "enes-turan-demo.svc.id.goog"
+  },
+  "zone": "us-west4-a"
+}

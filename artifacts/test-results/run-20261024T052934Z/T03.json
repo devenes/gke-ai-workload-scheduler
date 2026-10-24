@@ -1,0 +1,48 @@
+{
+  "test_id": "T03",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Policy A (FIFO) orders tasks strictly by arrival sequence under equal conditions.",
+  "preconditions": [
+    "Scheduler engine active"
+  ],
+  "acceptance_criteria": [
+    "Dispatch rank and admission sequence equal arrival sequence 1..20"
+  ],
+  "measured_outcomes": {
+    "task_count": 20,
+    "arrival_equals_dispatch_and_admission": true,
+    "first_5_task_ids": [
+      "sim-fifo-mixed-s42-n20-c2-1761-001",
+      "sim-fifo-mixed-s42-n20-c2-1761-002",
+      "sim-fifo-mixed-s42-n20-c2-1761-003",
+      "sim-fifo-mixed-s42-n20-c2-1761-004",
+      "sim-fifo-mixed-s42-n20-c2-1761-005"
+    ]
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T03.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T03-fifo-simulation.json"
+  ],
+  "limitations": [
+    "Evaluated in deterministic simulation"
+  ],
+  "started_at": "2026-10-24T05:30:00.517911+00:00",
+  "finished_at": "2026-10-24T05:30:02.011337+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

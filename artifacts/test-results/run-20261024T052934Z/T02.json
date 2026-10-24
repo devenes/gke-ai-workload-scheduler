@@ -1,0 +1,53 @@
+{
+  "test_id": "T02",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "The CPU-only scikit-learn GradientBoostingRegressor runtime predictor trains deterministically, validates pre-execution features without future leakage, and outperforms global and class-median baselines on the independent holdout dataset.",
+  "preconditions": [
+    "Python .venv with scikit-learn installed",
+    "runtime-predictor service running"
+  ],
+  "acceptance_criteria": [
+    "Pytest predictor test suite passes",
+    "Holdout seed != Training seed",
+    "Holdout MAE improves >50% over class-median baseline"
+  ],
+  "measured_outcomes": {
+    "pytest_exit_code": 0,
+    "model_version": "v1.0.0-cpu-gbr",
+    "training_fingerprint_sha256": "b659dc5114320c787d9d176dc293d5fb5274559608a220876c3a5e88965fb373",
+    "holdout_fingerprint_sha256": "fc0892077e7eb1924a70427ea82e20d20a84fbd0082edc9ee2e9f5750f8ae962",
+    "leakage_check_passed": true,
+    "holdout_mae_sec": 0.2443,
+    "holdout_rmse_sec": 0.375,
+    "class_median_baseline_mae_sec": 2.2836,
+    "global_median_baseline_mae_sec": 3.6812,
+    "mae_improvement_vs_class_median_pct": 89.3
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T02.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T02-pytest-predictor.txt",
+    "artifacts/test-results/run-20261024T052934Z/logs/T02-predictor-metadata.json"
+  ],
+  "limitations": [
+    "Trained on calibrated CPU workload distribution"
+  ],
+  "started_at": "2026-10-24T05:29:56.528084+00:00",
+  "finished_at": "2026-10-24T05:30:00.517411+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

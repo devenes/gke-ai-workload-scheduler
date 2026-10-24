@@ -1,0 +1,54 @@
+{
+  "test_id": "T11",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "The admission gate strictly enforces MaxConcurrentJobs (c=2 and c=4) and CPU/memory resource budgets during live GKE Job execution.",
+  "preconditions": [
+    "Live GKE cluster connected"
+  ],
+  "acceptance_criteria": [
+    "Peak active Jobs never exceed configured concurrency (2 and 4)",
+    "Peak requested CPU never exceeds budget"
+  ],
+  "measured_outcomes": {
+    "concurrency_2_run": {
+      "peak_active_jobs": 2,
+      "concurrency_limit": 2,
+      "peak_requested_cpu_milli": 550,
+      "cpu_budget_milli": 600,
+      "makespan_sec": 10.4625
+    },
+    "concurrency_4_run": {
+      "peak_active_jobs": 4,
+      "concurrency_limit": 4,
+      "peak_requested_cpu_milli": 1050,
+      "cpu_budget_milli": 1400,
+      "makespan_sec": 10.348
+    }
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T11.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T11-concurrency-budget-runs.json"
+  ],
+  "limitations": [
+    "Evaluated at concurrency=2 and concurrency=4"
+  ],
+  "started_at": "2026-10-24T05:30:52.303380+00:00",
+  "finished_at": "2026-10-24T05:31:19.532222+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

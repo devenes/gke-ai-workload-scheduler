@@ -1,0 +1,132 @@
+{
+  "mode": "full",
+  "run_directory": "artifacts/test-results/run-20261024T052347Z",
+  "generated_at": "2026-10-24T05:27:38.015514+00:00",
+  "total_tests": 20,
+  "passed": 19,
+  "failed": 1,
+  "blocked": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "test_id": "T00",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T00.json"
+    },
+    {
+      "test_id": "T01",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T01.json"
+    },
+    {
+      "test_id": "T02",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T02.json"
+    },
+    {
+      "test_id": "T03",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T03.json"
+    },
+    {
+      "test_id": "T04",
+      "status": "FAIL",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T04.json"
+    },
+    {
+      "test_id": "T05",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T05.json"
+    },
+    {
+      "test_id": "T06",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T06.json"
+    },
+    {
+      "test_id": "T07",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T07.json"
+    },
+    {
+      "test_id": "T08",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T08.json"
+    },
+    {
+      "test_id": "T09",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T09.json"
+    },
+    {
+      "test_id": "T10",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T10.json"
+    },
+    {
+      "test_id": "T11",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T11.json"
+    },
+    {
+      "test_id": "T12",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T12.json"
+    },
+    {
+      "test_id": "T13",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T13.json"
+    },
+    {
+      "test_id": "T14",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T14.json"
+    },
+    {
+      "test_id": "T15",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T15.json"
+    },
+    {
+      "test_id": "T16",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T16.json"
+    },
+    {
+      "test_id": "T17",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T17.json"
+    },
+    {
+      "test_id": "T18",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T18.json"
+    },
+    {
+      "test_id": "T19",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/run-20261024T052347Z/T19.json"
+    }
+  ]
+}

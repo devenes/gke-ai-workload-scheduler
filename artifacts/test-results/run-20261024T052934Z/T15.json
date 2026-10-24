@@ -1,0 +1,46 @@
+{
+  "test_id": "T15",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Low-cardinality Prometheus metrics are exposed on /metrics, scraped by PodMonitoring, and queryable in Cloud Monitoring timeSeries.",
+  "preconditions": [
+    "GKE Managed Prometheus enabled",
+    "Live workloads executed"
+  ],
+  "acceptance_criteria": [
+    "All required scheduler_* metrics exposed on /metrics",
+    "Cloud Monitoring API returns non-empty timeSeries points"
+  ],
+  "measured_outcomes": {
+    "all_required_prometheus_metrics_exposed": true,
+    "podmonitoring_resources_count": 2,
+    "cloud_monitoring_timeseries_points_verified": 2863
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T15.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T15-prometheus-metrics.txt",
+    "artifacts/test-results/run-20261024T052934Z/logs/T15-podmonitoring.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T15-cloud-monitoring-timeseries.json"
+  ],
+  "limitations": [
+    "GMP ingestion has a 15-60s scrape/indexing delay"
+  ],
+  "started_at": "2026-10-24T05:32:56.146758+00:00",
+  "finished_at": "2026-10-24T05:33:01.556705+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "test_id": "T08",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Offline simulations compare all 5 policies on identical seeded task sets (n=25, 50, 100) and verify predeclared hypotheses H1, H2, and H3.",
+  "preconditions": [
+    "Scheduler engine and predictor active"
+  ],
+  "acceptance_criteria": [
+    "All 5 policies evaluated on identical batch fingerprints",
+    "Hypotheses H1, H2, and H3 supported"
+  ],
+  "measured_outcomes": {
+    "batch_fingerprint_n25": "8d61d0faf56696d493bd933c681977c309f78fb322a3b89e4857c6b73b71a095",
+    "batch_fingerprint_n50": "d39727933810c750d722f11fa07290009df7e18a6035b7e39de9b62f02d7ae5e",
+    "batch_fingerprint_n100": "50f31ea226ba199483155886391db516993780e38b4a594f13711544db2b507f",
+    "n25_policy_metrics": {
+      "ai_assisted": {
+        "makespan_sec": 30.2783,
+        "mean_queue_wait_sec": 10.9633,
+        "p95_queue_wait_sec": 22.4811,
+        "deadline_success_rate_pct": 76,
+        "prediction_mae_sec": 0.1595
+      },
+      "edf": {
+        "makespan_sec": 28.6545,
+        "mean_queue_wait_sec": 11.1425,
+        "p95_queue_wait_sec": 25.1452,
+        "deadline_success_rate_pct": 72,
+        "prediction_mae_sec": 0.1595
+      },
+      "fifo": {
+        "makespan_sec": 30.9216,
+        "mean_queue_wait_sec": 12.5677,
+        "p95_queue_wait_sec": 21.9325,
+        "deadline_success_rate_pct": 28,
+        "prediction_mae_sec": 0.1595
+      },
+      "priority_aging": {
+        "makespan_sec": 29.9532,
+        "mean_queue_wait_sec": 11.7354,
+        "p95_queue_wait_sec": 21.0112,
+        "deadline_success_rate_pct": 48,
+        "prediction_mae_sec": 0.1595
+      },
+      "sjf": {
+        "makespan_sec": 30.2878,
+        "mean_queue_wait_sec": 9.9647,
+        "p95_queue_wait_sec": 18.9945,
+        "deadline_success_rate_pct": 52,
+        "prediction_mae_sec": 0.1595
+      }
+    },
+    "hypotheses": [
+      {
+        "id": "H1",
+        "statement": "The CPU scikit-learn runtime predictor reduces runtime estimation MAE by at least 25% compared with the per-class historical baseline on the evaluated workload.",
+        "target_metric": "prediction_mae_sec",
+        "baseline_value": 2.6886,
+        "measured_value": 0.1595,
+        "improvement_pct": 94.0675,
+        "threshold_pct": 25,
+        "supported": true,
+        "explanation": "ML predictor MAE=0.1595s vs class baseline MAE=2.6886s (94.07% error reduction)."
+      },
+      {
+        "id": "H2",
+        "statement": "The AI-assisted policy improves mean queue waiting time or deadline success rate by at least 5% over the FIFO baseline on mixed/deadline workloads.",
+        "target_metric": "mean_queue_wait_sec / deadline_success_rate_pct",
+        "baseline_value": 12.5677,
+        "measured_value": 10.9633,
+        "improvement_pct": 12.7661,
+        "threshold_pct": 5,
+        "supported": true,
+        "explanation": "AI-assisted mean queue wait=10.963s vs FIFO=12.568s (12.77% wait reduction); deadline success AI=76.0% vs FIFO=28.0% (EDF=72.0%)."
+      },
+      {
+        "id": "H3",
+        "statement": "The AI-assisted policy strictly obeys concurrency caps, CPU/memory resource budgets, and anti-starvation guarantees (zero safety violations).",
+        "target_metric": "safety_violations_count",
+        "baseline_value": 0,
+        "measured_value": 0,
+        "improvement_pct": 100,
+        "threshold_pct": 0,
+        "supported": true,
+        "explanation": "Peak active jobs=4 (cap=4), peak CPU=1000m (cap=2000m), starvation=false."
+      }
+    ]
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T08.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T08-offline-policy-comparisons.json"
+  ],
+  "limitations": [
+    "Offline simulation models calibrated execution without Kubernetes Pod startup jitter"
+  ],
+  "started_at": "2026-10-24T05:24:19.337317+00:00",
+  "finished_at": "2026-10-24T05:24:32.813331+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

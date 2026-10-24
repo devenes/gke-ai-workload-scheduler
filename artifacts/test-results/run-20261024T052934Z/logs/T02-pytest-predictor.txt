@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.16, pytest-8.3.4, pluggy-1.7.0 -- /Users/enes/GitHub/gke-ai-workload-scheduler/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/enes/GitHub/gke-ai-workload-scheduler
+configfile: pyproject.toml
+collecting ... collected 4 items
+
+predictor/tests/test_predictor.py::test_dataset_determinism PASSED       [ 25%]
+predictor/tests/test_predictor.py::test_feature_validation_and_leakage_rejection PASSED [ 50%]
+predictor/tests/test_predictor.py::test_train_and_holdout_baseline_comparison PASSED [ 75%]
+predictor/tests/test_predictor.py::test_http_prediction_service PASSED   [100%]
+
+============================== 4 passed in 2.27s ===============================
+

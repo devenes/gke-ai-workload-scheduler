@@ -1,0 +1,44 @@
+{
+  "test_id": "T16",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Durable queue and benchmark state is persisted to Kubernetes ConfigMap scheduler-durable-state with resourceVersion concurrency control.",
+  "preconditions": [
+    "GKE cluster connected"
+  ],
+  "acceptance_criteria": [
+    "ConfigMap scheduler-durable-state exists with valid resourceVersion",
+    "Persisted runs count > 0"
+  ],
+  "measured_outcomes": {
+    "durable_state_configmap": "scheduler-durable-state",
+    "k8s_resource_version": "1792819445194079015",
+    "persisted_runs_count": 66,
+    "admission_model": "In-controller Concurrency & Resource-Budget Gate (separating policy ranking, admission approval, and kube-scheduler Pod placement)"
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T16.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T16-durable-state-and-admission.json"
+  ],
+  "limitations": [
+    "ConfigMap snapshot backs in-cluster recovery across Pod restarts"
+  ],
+  "started_at": "2026-10-24T05:33:01.557114+00:00",
+  "finished_at": "2026-10-24T05:33:07.883545+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

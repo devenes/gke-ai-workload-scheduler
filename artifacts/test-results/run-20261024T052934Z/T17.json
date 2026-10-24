@@ -1,0 +1,49 @@
+{
+  "test_id": "T17",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Terraform configuration is formatted, valid, and has zero drift; IAM uses Workload Identity; all Kubernetes Services are internal ClusterIP.",
+  "preconditions": [
+    "Terraform state present in infra/terraform"
+  ],
+  "acceptance_criteria": [
+    "terraform fmt/validate/plan -detailed-exitcode succeed with 0 drift",
+    "All Services are ClusterIP"
+  ],
+  "measured_outcomes": {
+    "terraform_fmt_passed": true,
+    "terraform_validate_passed": true,
+    "terraform_plan_zero_drift": true,
+    "service_types": {
+      "runtime-predictor": "ClusterIP",
+      "scheduler-controller": "ClusterIP"
+    },
+    "no_public_load_balancer": true,
+    "workload_identity_annotation": "ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com"
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T17.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T17-terraform-plan-check.txt"
+  ],
+  "limitations": [
+    "Local Terraform state file"
+  ],
+  "started_at": "2026-10-24T05:33:07.883821+00:00",
+  "finished_at": "2026-10-24T05:33:22.947552+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

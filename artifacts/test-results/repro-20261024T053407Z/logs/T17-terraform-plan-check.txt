@@ -1,0 +1,30 @@
+[0m[1mgoogle_project_service.required["monitoring.googleapis.com"]: Refreshing state... [id=enes-turan-demo/monitoring.googleapis.com][0m
+[0m[1mgoogle_project_service.required["logging.googleapis.com"]: Refreshing state... [id=enes-turan-demo/logging.googleapis.com][0m
+[0m[1mgoogle_project_service.required["artifactregistry.googleapis.com"]: Refreshing state... [id=enes-turan-demo/artifactregistry.googleapis.com][0m
+[0m[1mgoogle_service_account.node_sa: Refreshing state... [id=projects/enes-turan-demo/serviceAccounts/ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_project_service.required["container.googleapis.com"]: Refreshing state... [id=enes-turan-demo/container.googleapis.com][0m
+[0m[1mgoogle_project_service.required["compute.googleapis.com"]: Refreshing state... [id=enes-turan-demo/compute.googleapis.com][0m
+[0m[1mgoogle_project_service.required["storage.googleapis.com"]: Refreshing state... [id=enes-turan-demo/storage.googleapis.com][0m
+[0m[1mgoogle_project_service.required["iam.googleapis.com"]: Refreshing state... [id=enes-turan-demo/iam.googleapis.com][0m
+[0m[1mgoogle_service_account.controller_sa: Refreshing state... [id=projects/enes-turan-demo/serviceAccounts/ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_project_iam_member.controller_monitoring_writer: Refreshing state... [id=enes-turan-demo/roles/monitoring.metricWriter/serviceAccount:ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_project_iam_member.node_sa_roles["roles/monitoring.viewer"]: Refreshing state... [id=enes-turan-demo/roles/monitoring.viewer/serviceAccount:ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_project_iam_member.node_sa_roles["roles/logging.logWriter"]: Refreshing state... [id=enes-turan-demo/roles/logging.logWriter/serviceAccount:ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_project_iam_member.node_sa_roles["roles/stackdriver.resourceMetadata.writer"]: Refreshing state... [id=enes-turan-demo/roles/stackdriver.resourceMetadata.writer/serviceAccount:ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_project_iam_member.node_sa_roles["roles/monitoring.metricWriter"]: Refreshing state... [id=enes-turan-demo/roles/monitoring.metricWriter/serviceAccount:ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_monitoring_dashboard.scheduler_dashboard: Refreshing state... [id=projects/697289276442/dashboards/23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4][0m
+[0m[1mgoogle_artifact_registry_repository.repo: Refreshing state... [id=projects/enes-turan-demo/locations/us-west4/repositories/ai-workload-scheduler][0m
+[0m[1mgoogle_compute_network.vpc: Refreshing state... [id=projects/enes-turan-demo/global/networks/gke-ai-workload-scheduler-vpc][0m
+[0m[1mgoogle_storage_bucket.artifacts: Refreshing state... [id=enes-turan-demo-ai-workload-scheduler-artifacts][0m
+[0m[1mgoogle_compute_subnetwork.subnet: Refreshing state... [id=projects/enes-turan-demo/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet][0m
+[0m[1mgoogle_artifact_registry_repository_iam_member.node_sa_ar_reader: Refreshing state... [id=projects/enes-turan-demo/locations/us-west4/repositories/ai-workload-scheduler/roles/artifactregistry.reader/serviceAccount:ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_storage_bucket_iam_member.controller_bucket_admin: Refreshing state... [id=b/enes-turan-demo-ai-workload-scheduler-artifacts/roles/storage.objectAdmin/serviceAccount:ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com][0m
+[0m[1mgoogle_container_cluster.primary: Refreshing state... [id=projects/enes-turan-demo/locations/us-west4-a/clusters/gke-ai-workload-scheduler][0m
+[0m[1mgoogle_service_account_iam_member.controller_wi_binding: Refreshing state... [id=projects/enes-turan-demo/serviceAccounts/ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com/roles/iam.workloadIdentityUser/serviceAccount:enes-turan-demo.svc.id.goog[ai-workload-scheduler/scheduler-controller-sa]][0m
+[0m[1mgoogle_container_node_pool.cpu_pool: Refreshing state... [id=projects/enes-turan-demo/locations/us-west4-a/clusters/gke-ai-workload-scheduler/nodePools/cpu-worker-pool][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+

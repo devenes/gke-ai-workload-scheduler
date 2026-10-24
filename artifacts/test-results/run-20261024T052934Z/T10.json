@@ -1,0 +1,55 @@
+{
+  "test_id": "T10",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "The dispatcher creates real bounded Kubernetes batch/v1 Jobs on GKE and records observed container execution durations and logs.",
+  "preconditions": [
+    "Live GKE cluster connected"
+  ],
+  "acceptance_criteria": [
+    "6/6 Kubernetes Jobs complete with Succeeded status",
+    "Observed actual_duration_sec > 0 and Pod logs captured"
+  ],
+  "measured_outcomes": {
+    "run_id": "gke-ai_assisted-mixed-s42-n6-c3-9833",
+    "submitted_tasks": 6,
+    "succeeded_tasks": 6,
+    "makespan_sec": 16.9659,
+    "mean_execution_duration_sec": 4.5,
+    "k8s_job_names": [
+      "ws-ssisted-mixed-s42-n6-c3-9833-001",
+      "ws-ssisted-mixed-s42-n6-c3-9833-002",
+      "ws-ssisted-mixed-s42-n6-c3-9833-003",
+      "ws-ssisted-mixed-s42-n6-c3-9833-004",
+      "ws-ssisted-mixed-s42-n6-c3-9833-005",
+      "ws-ssisted-mixed-s42-n6-c3-9833-006"
+    ],
+    "sample_worker_log": "{\"compute_intensity\":1.65,\"cpu_request_milli\":300,\"event\":\"worker_started\",\"input_size\":40.52,\"memory_working_set_mb\":31,\"started_at\":\"2026-10-24T05:30:41.950582307Z\",\"target_duration_sec\":1.061,\"task_id\":\"gke-ai_assisted-mixed-s42-n6-c3-9833-001\",\"workload_class\":\"short_cpu\"}\n{\"allocated_mib\":31,\"elapsed_sec\":1.0611,\"event\":\"worker_completed\",\"final_digest_hex\":\"3c1de2e9480ae713\",\"finished_at\":\"2026-10-24T05:30:43.011744314Z\",\"hash_iterations\":437654,\"target_sec\":1.061,\"task_id\":\"gke-ai_assisted-mixed-s42-n6-c3-9833-001\",\"workload_class\":\"short_cpu\"}"
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T10.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T10-live-gke-jobs.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T10-sample-task-detail.json"
+  ],
+  "limitations": [
+    "Bounded task count (n=6, concurrency=3) for cluster safety"
+  ],
+  "started_at": "2026-10-24T05:30:31.868671+00:00",
+  "finished_at": "2026-10-24T05:30:52.302959+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

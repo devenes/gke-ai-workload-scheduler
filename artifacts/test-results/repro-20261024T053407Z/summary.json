@@ -1,0 +1,54 @@
+{
+  "mode": "repro",
+  "run_directory": "artifacts/test-results/repro-20261024T053407Z",
+  "generated_at": "2026-10-24T05:35:28.307468+00:00",
+  "total_tests": 7,
+  "passed": 7,
+  "failed": 0,
+  "blocked": 0,
+  "skipped": 0,
+  "results": [
+    {
+      "test_id": "T00",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T00.json"
+    },
+    {
+      "test_id": "T01",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T01.json"
+    },
+    {
+      "test_id": "T02",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T02.json"
+    },
+    {
+      "test_id": "T08",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T08.json"
+    },
+    {
+      "test_id": "T17",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T17.json"
+    },
+    {
+      "test_id": "T18",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T18.json"
+    },
+    {
+      "test_id": "T19",
+      "status": "PASS",
+      "execution_status": "COMPLETED",
+      "evidence_path": "artifacts/test-results/repro-20261024T053407Z/T19.json"
+    }
+  ]
+}

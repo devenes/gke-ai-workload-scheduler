@@ -1,0 +1,54 @@
+{
+  "test_id": "T05",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Policy C (EDF) prioritizes viable deadlines by earliest deadline first while isolating expired deadlines and tasks without deadlines.",
+  "preconditions": [
+    "Scheduler API active"
+  ],
+  "acceptance_criteria": [
+    "Viable urgent deadline ranked #1, viable later deadline #2, no-deadline task #3"
+  ],
+  "measured_outcomes": {
+    "observed_rank_order": [
+      "edf-viable-urgent",
+      "edf-viable-later",
+      "edf-no-dl-low"
+    ],
+    "expected_rank_order": [
+      "edf-viable-urgent",
+      "edf-viable-later",
+      "edf-no-dl-low"
+    ],
+    "reasons": [
+      "EDF Tier-1 (viable deadline in 6.00s, prio=5)",
+      "EDF Tier-1 (viable deadline in 25.00s, prio=5)",
+      "EDF Tier-3 (no deadline, prio=4, arrival_seq=1)"
+    ]
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T05.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T05-edf-ranking.json"
+  ],
+  "limitations": [
+    "Discrete deadline tiers"
+  ],
+  "started_at": "2026-10-24T05:30:03.419585+00:00",
+  "finished_at": "2026-10-24T05:30:04.802072+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

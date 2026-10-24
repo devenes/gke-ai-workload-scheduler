@@ -1,0 +1,12 @@
+{
+  "project_id": "enes-turan-demo",
+  "region": "us-west4",
+  "repository": "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler",
+  "tag": "v1.0.0",
+  "scheduler_image": "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler:v1.0.0",
+  "scheduler_digest": "sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08",
+  "scheduler_pinned": "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler@sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08",
+  "predictor_image": "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor:v1.0.0",
+  "predictor_digest": "sha256:353705e220532916a4430c62d50fce0bf52ceb0380c3ca879243db300b4f0c39",
+  "predictor_pinned": "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor@sha256:353705e220532916a4430c62d50fce0bf52ceb0380c3ca879243db300b4f0c39"
+}

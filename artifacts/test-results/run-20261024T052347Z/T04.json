@@ -1,0 +1,53 @@
+{
+  "test_id": "T04",
+  "status": "FAIL",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Policy B (Prediction-Based SJF) orders waiting tasks monotonically by pre-execution predicted duration without future-duration leakage.",
+  "preconditions": [
+    "Runtime predictor active"
+  ],
+  "acceptance_criteria": [
+    "Admitted tasks ordered monotonically by predicted_duration_sec",
+    "No access to actual_duration_sec"
+  ],
+  "measured_outcomes": {
+    "task_count": 20,
+    "ordered_by_predicted_duration_monotonic": false,
+    "uses_pre_execution_predictions_without_oracle_leakage": true,
+    "ordered_predicted_durations_sec": [
+      1.6365,
+      1.3671,
+      1.5117,
+      1.6731,
+      1.9461,
+      1.9643,
+      1.9842,
+      2.1733
+    ]
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052347Z/T04.json",
+    "artifacts/test-results/run-20261024T052347Z/logs/T04-sjf-simulation.json"
+  ],
+  "limitations": [
+    "Evaluated at concurrency=1 to observe strict global ordering"
+  ],
+  "started_at": "2026-10-24T05:24:11.995369+00:00",
+  "finished_at": "2026-10-24T05:24:13.341623+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}

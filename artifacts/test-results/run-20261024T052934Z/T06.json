@@ -1,0 +1,45 @@
+{
+  "test_id": "T06",
+  "status": "PASS",
+  "execution_status": "COMPLETED",
+  "hypothesis": "Policy D (Priority with Aging) boosts waiting tasks continuously with elapsed wait time so low-priority tasks never starve.",
+  "preconditions": [
+    "Scheduler engine active"
+  ],
+  "acceptance_criteria": [
+    "All 24 tasks complete with 0 starvation",
+    "Low-priority tasks receive positive aging boost"
+  ],
+  "measured_outcomes": {
+    "submitted_tasks": 24,
+    "succeeded_tasks": 24,
+    "starvation_detected": false,
+    "low_priority_max_wait_sec": 65.2047,
+    "aging_boost_observed_on_low_priority": true
+  },
+  "evidence_paths": [
+    "artifacts/test-results/run-20261024T052934Z/T06.json",
+    "artifacts/test-results/run-20261024T052934Z/logs/T06-priority-aging.json"
+  ],
+  "limitations": [
+    "Linear aging with configurable tau=5.0s"
+  ],
+  "started_at": "2026-10-24T05:30:04.802483+00:00",
+  "finished_at": "2026-10-24T05:30:06.236554+00:00",
+  "environment": {
+    "project_id": "enes-turan-demo",
+    "region": "us-west4",
+    "zone": "us-west4-a",
+    "cluster_name": "gke-ai-workload-scheduler",
+    "k8s_namespace": "ai-workload-scheduler",
+    "host_os": "Darwin",
+    "host_arch": "arm64"
+  },
+  "software_versions": {
+    "python": "3.13.16",
+    "go": "go version go1.27.2 darwin/arm64",
+    "terraform": "1.16.5",
+    "kubectl": "v1.37.1",
+    "gcloud": "Google Cloud SDK 590.0.0"
+  }
+}
