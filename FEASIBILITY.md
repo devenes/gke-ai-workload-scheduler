@@ -4,7 +4,7 @@
 
 | Check Category | Observed State (`2026-10-24`) | Assessment |
 |---|---|---|
-| **GCP Identity & Project** | `ahmedenesturan@gmail.com` on project `enes-turan-demo` (`697289276442`), `lifecycleState: ACTIVE` | Verified |
+| **GCP Identity & Project** | `user@example.com` on project `your-gcp-project-id` (`123456789012`), `lifecycleState: ACTIVE` | Verified |
 | **Target Region / Zone** | `us-west4` / `us-west4-a` | Verified |
 | **Existing Project Resources** | `0` GKE clusters, `0` GCE instances, `0` persistent disks, `0` GCS buckets, `0` Artifact Registry repos, `1` `default` VPC | Zero resource conflicts |
 | **Quotas (`us-west4`)** | `CPUS`: `0/200`, `E2_CPUS`: `0/24`, `DISKS_TOTAL_GB`: `0/4096`, `SSD_TOTAL_GB`: `0/500`, `INSTANCES`: `0/24` | Ample quota headroom |

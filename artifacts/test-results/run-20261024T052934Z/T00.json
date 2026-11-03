@@ -2,7 +2,7 @@
   "test_id": "T00",
   "status": "PASS",
   "execution_status": "COMPLETED",
-  "hypothesis": "The GCP project enes-turan-demo, zonal GKE Standard cluster gke-ai-workload-scheduler (us-west4-a), CPU-only node pool, and namespace ai-workload-scheduler are active and healthy.",
+  "hypothesis": "The GCP project your-gcp-project-id, zonal GKE Standard cluster gke-ai-workload-scheduler (us-west4-a), CPU-only node pool, and namespace ai-workload-scheduler are active and healthy.",
   "preconditions": [
     "Terraform apply completed",
     "kubectl context configured"
@@ -36,7 +36,7 @@
   "started_at": "2026-10-24T05:29:35.767333+00:00",
   "finished_at": "2026-10-24T05:29:43.590707+00:00",
   "environment": {
-    "project_id": "enes-turan-demo",
+    "project_id": "your-gcp-project-id",
     "region": "us-west4",
     "zone": "us-west4-a",
     "cluster_name": "gke-ai-workload-scheduler",

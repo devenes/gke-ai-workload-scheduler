@@ -31,7 +31,7 @@
   "concurrency_limit": 4,
   "cpu_budget_milli": 2000,
   "memory_budget_mb": 4096,
-  "monitoring_dashboard": "https://console.cloud.google.com/monitoring/dashboards?project=enes-turan-demo",
+  "monitoring_dashboard": "https://console.cloud.google.com/monitoring/dashboards?project=your-gcp-project-id",
   "predictor_health": {
     "holdout_mae_sec": 0.2443,
     "model_version": "v1.0.0-cpu-gbr",
@@ -40,7 +40,7 @@
   },
   "predictor_healthy": true,
   "predictor_version": "v1.0.0-cpu-gbr",
-  "project_id": "enes-turan-demo",
+  "project_id": "your-gcp-project-id",
   "queue_depth": 0,
   "recent_runs": [],
   "region": "us-west4",

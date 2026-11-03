@@ -36,14 +36,14 @@ type Config struct {
 // Default returns safe baseline settings matching the project specification.
 func Default() Config {
 	return Config{
-		ProjectID:          "enes-turan-demo",
+		ProjectID:          "your-gcp-project-id",
 		Region:             "us-west4",
 		Zone:               "us-west4-a",
 		ClusterName:        "gke-ai-workload-scheduler",
 		Namespace:          "ai-workload-scheduler",
 		HTTPAddr:           ":8080",
 		PredictorURL:       "http://127.0.0.1:8081",
-		WorkerImage:        "us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler:v1.0.0",
+		WorkerImage:        "us-west4-docker.pkg.dev/your-gcp-project-id/ai-workload-scheduler/scheduler:v1.0.0",
 		ServiceAccountName: "scheduler-worker-sa",
 		StateDir:           "artifacts/state",
 		ArtifactsDir:       "artifacts",

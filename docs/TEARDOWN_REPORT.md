@@ -1,7 +1,7 @@
 # GCP Infrastructure Teardown Report (`docs/TEARDOWN_REPORT.md`)
 
 **Project Name:** `gke-ai-workload-scheduler`  
-**GCP Project ID:** `enes-turan-demo` (`697289276442`)  
+**GCP Project ID:** `your-gcp-project-id` (`123456789012`)  
 **Region / Zone:** `us-west4` / `us-west4-a`  
 **Terraform Working Directory:** [`../infra/terraform`](../infra/terraform)  
 **Terraform Workspace:** `default` (Local state backend `infra/terraform/terraform.tfstate`, excluded from Git via [`.gitignore`](../.gitignore))  
@@ -40,7 +40,7 @@ terraform plan -destroy -no-color -out=destroy.tfplan
 # Plan: 0 to add, 0 to change, 24 to destroy.
 ```
 
-Every resource in `destroy.tfplan` carried the project ownership labels (`project = "gke-ai-workload-scheduler"`, `managed-by = "terraform"`, `environment = "demo"`) or was a dedicated IAM binding/service account created specifically by [`infra/terraform/main.tf`](../infra/terraform/main.tf). All 7 `google_project_service.required[*]` resources had `disable_on_destroy = false`, ensuring project-wide Google Cloud APIs remained enabled for `enes-turan-demo`.
+Every resource in `destroy.tfplan` carried the project ownership labels (`project = "gke-ai-workload-scheduler"`, `managed-by = "terraform"`, `environment = "demo"`) or was a dedicated IAM binding/service account created specifically by [`infra/terraform/main.tf`](../infra/terraform/main.tf). All 7 `google_project_service.required[*]` resources had `disable_on_destroy = false`, ensuring project-wide Google Cloud APIs remained enabled for `your-gcp-project-id`.
 
 ---
 
@@ -58,15 +58,15 @@ rm -f destroy.tfplan
 
 | # | Terraform Resource Address | GCP Resource Identifier | Destruction Duration | Final State |
 |---:|---|---|---|---|
-| 1 | `google_container_node_pool.cpu_pool` | `projects/enes-turan-demo/locations/us-west4-a/clusters/gke-ai-workload-scheduler/nodePools/cpu-worker-pool` (`1 x e2-standard-4`, `50 GB pd-balanced`) | `2m58s` | Destroyed |
-| 2 | `google_container_cluster.primary` | `projects/enes-turan-demo/locations/us-west4-a/clusters/gke-ai-workload-scheduler` | `4m58s` | Destroyed |
-| 3 | `google_compute_subnetwork.subnet` | `projects/enes-turan-demo/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet` (`10.48.0.0/20`, Pods `10.52.0.0/16`, Services `10.53.0.0/20`) | `26s` | Destroyed |
-| 4 | `google_compute_network.vpc` | `projects/enes-turan-demo/global/networks/gke-ai-workload-scheduler-vpc` | `22s` | Destroyed |
-| 5 | `google_artifact_registry_repository.repo` | `projects/enes-turan-demo/locations/us-west4/repositories/ai-workload-scheduler` | `2s` | Destroyed |
-| 6 | `google_storage_bucket.artifacts` | `gs://enes-turan-demo-ai-workload-scheduler-artifacts` | `2s` | Destroyed |
-| 7 | `google_monitoring_dashboard.scheduler_dashboard` | `projects/697289276442/dashboards/23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4` | `2s` | Destroyed |
-| 8 | `google_service_account.node_sa` | `ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com` | `1s` | Destroyed |
-| 9 | `google_service_account.controller_sa` | `ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com` | `<1s` | Destroyed |
+| 1 | `google_container_node_pool.cpu_pool` | `projects/your-gcp-project-id/locations/us-west4-a/clusters/gke-ai-workload-scheduler/nodePools/cpu-worker-pool` (`1 x e2-standard-4`, `50 GB pd-balanced`) | `2m58s` | Destroyed |
+| 2 | `google_container_cluster.primary` | `projects/your-gcp-project-id/locations/us-west4-a/clusters/gke-ai-workload-scheduler` | `4m58s` | Destroyed |
+| 3 | `google_compute_subnetwork.subnet` | `projects/your-gcp-project-id/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet` (`10.48.0.0/20`, Pods `10.52.0.0/16`, Services `10.53.0.0/20`) | `26s` | Destroyed |
+| 4 | `google_compute_network.vpc` | `projects/your-gcp-project-id/global/networks/gke-ai-workload-scheduler-vpc` | `22s` | Destroyed |
+| 5 | `google_artifact_registry_repository.repo` | `projects/your-gcp-project-id/locations/us-west4/repositories/ai-workload-scheduler` | `2s` | Destroyed |
+| 6 | `google_storage_bucket.artifacts` | `gs://your-gcp-project-id-ai-workload-scheduler-artifacts` | `2s` | Destroyed |
+| 7 | `google_monitoring_dashboard.scheduler_dashboard` | `projects/123456789012/dashboards/23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4` | `2s` | Destroyed |
+| 8 | `google_service_account.node_sa` | `ai-ws-node-sa@your-gcp-project-id.iam.gserviceaccount.com` | `1s` | Destroyed |
+| 9 | `google_service_account.controller_sa` | `ai-ws-controller-sa@your-gcp-project-id.iam.gserviceaccount.com` | `<1s` | Destroyed |
 | 10 | `google_artifact_registry_repository_iam_member.node_sa_ar_reader` | `roles/artifactregistry.reader` for `ai-ws-node-sa` | `9s` | Destroyed |
 | 11 | `google_storage_bucket_iam_member.controller_bucket_admin` | `roles/storage.objectAdmin` for `ai-ws-controller-sa` | `7s` | Destroyed |
 | 12 | `google_service_account_iam_member.controller_wi_binding` | `roles/iam.workloadIdentityUser` for `ai-workload-scheduler/scheduler-controller-sa` | `7s` | Destroyed |
@@ -87,27 +87,27 @@ Apply complete! Resources: 0 added, 0 changed, 24 destroyed.
 
 ## 4. Independent Post-Destroy Live GCP Inventory Verification
 
-Following completion of `terraform apply "destroy.tfplan"`, independent read-only `gcloud` queries were executed against `enes-turan-demo`:
+Following completion of `terraform apply "destroy.tfplan"`, independent read-only `gcloud` queries were executed against `your-gcp-project-id`:
 
 | Resource Category | Verification Command | Post-Destroy Project-Owned Count | Pre-Existing / Shared Resources Preserved |
 |---|---|---:|---|
-| **GKE Clusters** | `gcloud container clusters list --project=enes-turan-demo` | **`0`** (`gke-ai-workload-scheduler` absent) | None |
-| **Compute Instances** | `gcloud compute instances list --project=enes-turan-demo` | **`0`** (`cpu-worker-pool` VM absent) | None |
-| **Persistent Disks** | `gcloud compute disks list --project=enes-turan-demo` | **`0`** (`50 GB pd-balanced` disk absent) | None |
-| **VPC Networks** | `gcloud compute networks list --project=enes-turan-demo` | **`0`** (`gke-ai-workload-scheduler-vpc` absent) | `default` VPC preserved |
-| **Subnetworks (`us-west4`)** | `gcloud compute networks subnets list --project=enes-turan-demo --regions=us-west4` | **`0`** (`gke-ai-workload-scheduler-subnet` & PE subnet absent) | `default` (`10.182.0.0/20`) preserved |
-| **Firewall Rules** | `gcloud compute firewall-rules list --project=enes-turan-demo` | **`0`** (GKE auto-created rules absent) | `4` `default-allow-*` rules preserved |
+| **GKE Clusters** | `gcloud container clusters list --project=your-gcp-project-id` | **`0`** (`gke-ai-workload-scheduler` absent) | None |
+| **Compute Instances** | `gcloud compute instances list --project=your-gcp-project-id` | **`0`** (`cpu-worker-pool` VM absent) | None |
+| **Persistent Disks** | `gcloud compute disks list --project=your-gcp-project-id` | **`0`** (`50 GB pd-balanced` disk absent) | None |
+| **VPC Networks** | `gcloud compute networks list --project=your-gcp-project-id` | **`0`** (`gke-ai-workload-scheduler-vpc` absent) | `default` VPC preserved |
+| **Subnetworks (`us-west4`)** | `gcloud compute networks subnets list --project=your-gcp-project-id --regions=us-west4` | **`0`** (`gke-ai-workload-scheduler-subnet` & PE subnet absent) | `default` (`10.182.0.0/20`) preserved |
+| **Firewall Rules** | `gcloud compute firewall-rules list --project=your-gcp-project-id` | **`0`** (GKE auto-created rules absent) | `4` `default-allow-*` rules preserved |
 | **Addresses & Forwarding Rules** | `gcloud compute addresses list` / `forwarding-rules list` | **`0`** | None |
-| **Cloud Storage Buckets** | `gcloud storage buckets list --project=enes-turan-demo` | **`0`** (`enes-turan-demo-ai-workload-scheduler-artifacts` absent) | None |
-| **Artifact Registry (`us-west4`)** | `gcloud artifacts repositories list --project=enes-turan-demo --location=us-west4` | **`0`** (`ai-workload-scheduler` absent) | None |
-| **IAM Service Accounts** | `gcloud iam service-accounts list --project=enes-turan-demo` | **`0`** (`ai-ws-node-sa` & `ai-ws-controller-sa` absent) | `ais-gemini-key-c62308ae7c414d2@...` & `697289276442-compute@...` preserved |
-| **Cloud Monitoring Dashboards** | `gcloud monitoring dashboards list --project=enes-turan-demo` | **`0`** (`23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4` absent) | None |
+| **Cloud Storage Buckets** | `gcloud storage buckets list --project=your-gcp-project-id` | **`0`** (`your-gcp-project-id-ai-workload-scheduler-artifacts` absent) | None |
+| **Artifact Registry (`us-west4`)** | `gcloud artifacts repositories list --project=your-gcp-project-id --location=us-west4` | **`0`** (`ai-workload-scheduler` absent) | None |
+| **IAM Service Accounts** | `gcloud iam service-accounts list --project=your-gcp-project-id` | **`0`** (`ai-ws-node-sa` & `ai-ws-controller-sa` absent) | `preexisting-workload-sa@...` & `123456789012-compute@...` preserved |
+| **Cloud Monitoring Dashboards** | `gcloud monitoring dashboards list --project=your-gcp-project-id` | **`0`** (`23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4` absent) | None |
 
 ---
 
 ## 5. Recreating the Stack from a Fresh Checkout
 
-To re-provision the entire GKE infrastructure and application stack in `enes-turan-demo` (`us-west4-a`):
+To re-provision the entire GKE infrastructure and application stack in `your-gcp-project-id` (`us-west4-a`):
 
 ```bash
 # 1. Provision GCP & GKE resources via Terraform

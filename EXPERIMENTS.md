@@ -1,7 +1,7 @@
 # Experimental Design, Benchmarks, and Verification Evidence (`EXPERIMENTS.md`)
 
 **Project:** `gke-ai-workload-scheduler`  
-**Target Environment:** `enes-turan-demo` (`us-west4-a`), GKE Standard cluster `gke-ai-workload-scheduler` (`1 x e2-standard-4`, `4 vCPU`, `16 GiB RAM`)  
+**Target Environment:** `your-gcp-project-id` (`us-west4-a`), GKE Standard cluster `gke-ai-workload-scheduler` (`1 x e2-standard-4`, `4 vCPU`, `16 GiB RAM`)  
 **Full Evidence Suite Path:** [`artifacts/test-results/run-20261024T052934Z/summary.json`](artifacts/test-results/run-20261024T052934Z/summary.json) (`20/20 PASS`)  
 **Reproducibility Rerun Path:** [`artifacts/test-results/repro-20261024T053407Z/summary.json`](artifacts/test-results/repro-20261024T053407Z/summary.json) (`7/7 PASS`)  
 **Initial Diagnostic Run Path (Preserved):** [`artifacts/test-results/run-20261024T052347Z/summary.json`](artifacts/test-results/run-20261024T052347Z/summary.json) (`19/20 PASS`, `T04` diagnosed & fixed)  

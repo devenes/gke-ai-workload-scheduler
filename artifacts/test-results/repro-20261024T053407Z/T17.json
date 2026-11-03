@@ -19,7 +19,7 @@
       "scheduler-controller": "ClusterIP"
     },
     "no_public_load_balancer": true,
-    "workload_identity_annotation": "ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com"
+    "workload_identity_annotation": "ai-ws-controller-sa@your-gcp-project-id.iam.gserviceaccount.com"
   },
   "evidence_paths": [
     "artifacts/test-results/repro-20261024T053407Z/T17.json",
@@ -31,7 +31,7 @@
   "started_at": "2026-10-24T05:34:56.887858+00:00",
   "finished_at": "2026-10-24T05:35:12.970727+00:00",
   "environment": {
-    "project_id": "enes-turan-demo",
+    "project_id": "your-gcp-project-id",
     "region": "us-west4",
     "zone": "us-west4-a",
     "cluster_name": "gke-ai-workload-scheduler",

@@ -27,7 +27,7 @@ make test
 make simulate
 ```
 
-### Step 3: Validate Terraform Infrastructure in `enes-turan-demo` (`us-west4-a`)
+### Step 3: Validate Terraform Infrastructure in `your-gcp-project-id` (`us-west4-a`)
 
 ```bash
 make tf-validate

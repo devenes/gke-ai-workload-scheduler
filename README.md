@@ -1,26 +1,28 @@
 # GKE AI Workload Scheduler (`gke-ai-workload-scheduler`)
 
-A complete, reproducible, CPU-only **AI-assisted batch workload scheduling platform** implemented, deployed, benchmarked, and verified end-to-end on **Google Kubernetes Engine (GKE) Standard** (`gke-ai-workload-scheduler`, `us-west4-a`, project `enes-turan-demo`).
+![Go 1.27](https://img.shields.io/badge/Go-1.27-00ADD8?logo=go&logoColor=white)
+![Python / scikit-learn](https://img.shields.io/badge/Python%203.12-scikit--learn%201.5-F7931E?logo=scikitlearn&logoColor=white)
+![GKE Standard (CPU-Only)](https://img.shields.io/badge/GKE%20Standard-CPU--Only-4285F4?logo=googlekubernetesengine&logoColor=white)
+![Prometheus / Cloud Monitoring](https://img.shields.io/badge/Observability-Prometheus%20%2B%20GMP-E6522C?logo=prometheus&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-%3E%3D1.5-7B42BC?logo=terraform&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+A complete, reproducible, CPU-only **AI-assisted batch workload scheduling platform** implemented, deployed, benchmarked, and verified end-to-end on **Google Kubernetes Engine (GKE) Standard** (`gke-ai-workload-scheduler`, `us-west4-a`).
 
 This platform demonstrates how a CPU-only `scikit-learn` runtime predictor (`GradientBoostingRegressor`, `v1.0.0-cpu-gbr`) predicts container execution duration prior to admission (`0.2443s` holdout MAE vs. `2.2836s` historical class median baseline — **`89.30%` error reduction**, and **`0.3206s` live GKE MAE**) and how a multi-objective scheduling policy (**Policy E: `ai_assisted`**) uses those predictions alongside deadline slack urgency, resource pressure, priority, and bounded aging to improve queue waiting time and deadline attainment on both offline discrete-event simulations (`n=25, 50, 100`) and real Kubernetes `batch/v1` `Job` workloads on GKE (`n=5, 6, 8, 10`).
 
 ---
 
-## Final Cloud Lifecycle Status & Cost Summary
-
-> **POST-TEARDOWN STATUS (`DESTROYED — $0.00 / hr`):**  
-> After completing and preserving all live GKE benchmarks, `T00`–`T19` full verification (`20/20 PASS`), and reproducibility verification (`7/7 PASS`), the 24 Terraform-managed GCP resources created specifically for this demo were destroyed via a reviewed `terraform plan -destroy -out=destroy.tfplan` and independently verified absent (see [`docs/TEARDOWN_REPORT.md`](docs/TEARDOWN_REPORT.md)).  
-> To recreate the live GKE environment from a fresh checkout, follow [Section 5 (Quickstart)](#5-quickstart-local-simulation-gke-redeployment--verification) below.
+## Estimated Cloud Cost Summary
 
 | Time Horizon (When Provisioned) | Compute (`1 x e2-standard-4`) | Boot Disk (`50 GB pd-balanced`) | GKE Zonal Management (`Free Tier`) | Storage, Registry & Monitoring | **Estimated Active Cost (USD)** |
 |---|---:|---:|---:|---:|---:|
-| **Current Post-Destroy State** | `$0.0000` | `$0.0000` | `$0.0000` | `$0.0000` | **`$0.0000 / hr` (Destroyed)** |
+| **Single Benchmark Run (`~15 min`)** | `$0.0377` | `$0.0019` | `$0.0000` | `$0.0001` | **`$0.040 / run`** |
 | **1 Hour (Active Stack)** | `$0.1509` | `$0.0075` | `$0.0000` (Covered by `$74.40/mo` credit) | `$0.0005` | **`$0.1590 / hr`** |
 | **1 Day (24 Hours Active)** | `$3.6227` | `$0.1808` | `$0.0000` | `$0.0120` | **`$3.82 / day`** |
 | **1 Month (730 Hours Active)** | `$110.19` | `$5.50` | `$0.00` (`$73.00` gross `- $73.00` credit) | `$0.36` | **`$116.05 / month`** |
-| **Single Benchmark Run (`~15 min`)** | `$0.0377` | `$0.0019` | `$0.0000` | `$0.0001` | **`$0.040 / run`** |
 
-See [`COST_AND_QUOTAS.md`](COST_AND_QUOTAS.md) and [`docs/TEARDOWN_REPORT.md`](docs/TEARDOWN_REPORT.md) for full quota, pricing, and post-destroy verification tables.
+See [`COST_AND_QUOTAS.md`](COST_AND_QUOTAS.md) and [`docs/TEARDOWN_REPORT.md`](docs/TEARDOWN_REPORT.md) for full quota, pricing, and teardown verification details.
 
 ---
 
@@ -28,16 +30,16 @@ See [`COST_AND_QUOTAS.md`](COST_AND_QUOTAS.md) and [`docs/TEARDOWN_REPORT.md`](d
 
 | Resource / Component | Identifier / Value | Verification Status |
 |---|---|---|
-| **GCP Project** | `enes-turan-demo` (`697289276442`) | Verified (`us-west4` / `us-west4-a`) |
+| **GCP Project** | `your-gcp-project-id` (`123456789012`) | Verified (`us-west4` / `us-west4-a`) |
 | **GKE Cluster** | `gke-ai-workload-scheduler` (`us-west4-a`, GKE `1.36.4-gke.1495002`, Standard Zonal) | Verified Live (`T00`–`T19`), then Destroyed |
 | **Node Pool** | `cpu-worker-pool` (`1 x e2-standard-4`, `4 vCPU`, `16 GiB RAM`, `50 GB pd-balanced`, `3920m` allocatable CPU) | Verified Live (`1 Ready`), then Destroyed |
 | **Kubernetes Namespace** | `ai-workload-scheduler` | Verified (`ClusterIP` only, zero external LB) |
 | **Controller Deployment** | `deployment/scheduler-controller` (`ClusterIP` `8080/TCP`, non-root `65532:65532`) | Verified `1/1 Ready` |
 | **Predictor Deployment** | `deployment/runtime-predictor` (`ClusterIP` `8081/TCP`, non-root `65532:65532`) | Verified `1/1 Ready` |
 | **Durable State Backing Store** | `ConfigMap/scheduler-durable-state` + per-run `ConfigMap/run-*` records | Verified across Pod restart (`T16`) |
-| **Scheduler & Worker Image** | `us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler@sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08` | Recorded in [`artifacts/deployed_images.json`](artifacts/deployed_images.json) |
-| **Predictor Image** | `us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor@sha256:353705e220532916a4430c62d50fce0bf52ceb0380c3ca879243db300b4f0c39` | Recorded in [`artifacts/deployed_images.json`](artifacts/deployed_images.json) |
-| **Cloud Monitoring Dashboard** | `projects/697289276442/dashboards/23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4` | Verified (`1,323` `timeSeries` points in `T15`) |
+| **Scheduler & Worker Image** | `us-west4-docker.pkg.dev/your-gcp-project-id/ai-workload-scheduler/scheduler@sha256:30ce4173ac008506022e0cd95b12cf2636ad69cdb290715d5169678243642e08` | Recorded in [`artifacts/deployed_images.json`](artifacts/deployed_images.json) |
+| **Predictor Image** | `us-west4-docker.pkg.dev/your-gcp-project-id/ai-workload-scheduler/predictor@sha256:353705e220532916a4430c62d50fce0bf52ceb0380c3ca879243db300b4f0c39` | Recorded in [`artifacts/deployed_images.json`](artifacts/deployed_images.json) |
+| **Cloud Monitoring Dashboard** | `projects/123456789012/dashboards/23d1f9c0-438e-4b95-a7cc-6c8299d5a5d4` | Verified (`1,323` `timeSeries` points in `T15`) |
 
 ---
 
@@ -153,7 +155,7 @@ LOCAL_MODE=true go run ./cmd/scheduler
 
 ### 5.2 Provision GKE Cluster, Deploy Images & Access Web UI
 ```bash
-# 1. Validate, plan, and apply Terraform infrastructure in enes-turan-demo (us-west4-a)
+# 1. Validate, plan, and apply Terraform infrastructure in your-gcp-project-id (us-west4-a)
 make tf-validate
 make tf-plan
 make tf-apply

@@ -28,7 +28,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: predictor
-          image: us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor:v1.0.0
+          image: us-west4-docker.pkg.dev/your-gcp-project-id/ai-workload-scheduler/predictor:v1.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

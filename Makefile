@@ -1,4 +1,4 @@
-PROJECT_ID ?= enes-turan-demo
+PROJECT_ID ?= your-gcp-project-id
 REGION ?= us-west4
 ZONE ?= us-west4-a
 CLUSTER_NAME ?= gke-ai-workload-scheduler

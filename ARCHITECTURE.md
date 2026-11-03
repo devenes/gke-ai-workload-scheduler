@@ -2,7 +2,7 @@
 
 ## 1. System Architecture Overview
 
-`gke-ai-workload-scheduler` is a CPU-only AI-assisted batch workload scheduling platform deployed on a dedicated zonal Google Kubernetes Engine (GKE) Standard cluster (`gke-ai-workload-scheduler` in `us-west4-a`) in project `enes-turan-demo`.
+`gke-ai-workload-scheduler` is a CPU-only AI-assisted batch workload scheduling platform deployed on a dedicated zonal Google Kubernetes Engine (GKE) Standard cluster (`gke-ai-workload-scheduler` in `us-west4-a`) in project `your-gcp-project-id`.
 
 ```mermaid
 flowchart TB
@@ -39,9 +39,9 @@ flowchart TB
         PM["PodMonitoring CRDs\n(15s Scrape Interval)"]
     end
 
-    subgraph GCPServices["Google Cloud Platform (enes-turan-demo, us-west4)"]
+    subgraph GCPServices["Google Cloud Platform (your-gcp-project-id, us-west4)"]
         AR["Artifact Registry\n(ai-workload-scheduler)"]
-        GCS["Cloud Storage Bucket\n(enes-turan-demo-ai-workload-scheduler-artifacts)"]
+        GCS["Cloud Storage Bucket\n(your-gcp-project-id-ai-workload-scheduler-artifacts)"]
         GMP["Cloud Monitoring & Managed Prometheus\n(Terraform Dashboard)"]
     end
 
@@ -147,7 +147,7 @@ stateDiagram-v2
 ## 6. Security, Workload Identity, and Network Boundaries
 
 - **Zero Service-Account Keys**:
-  - `scheduler-controller-sa` binds to `ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com` via GKE Workload Identity (`roles/iam.workloadIdentityUser`).
+  - `scheduler-controller-sa` binds to `ai-ws-controller-sa@your-gcp-project-id.iam.gserviceaccount.com` via GKE Workload Identity (`roles/iam.workloadIdentityUser`).
   - Worker Pods (`scheduler-worker-sa`) and predictor Pods (`runtime-predictor-sa`) set `automountServiceAccountToken: false` so batch workloads cannot access the Kubernetes API server.
 - **Container Hardening**:
   - All containers run as non-root UID/GID `65532:65532` with `readOnlyRootFilesystem: true`, `allowPrivilegeEscalation: false`, `capabilities.drop: ["ALL"]`, and `seccompProfile: RuntimeDefault`.

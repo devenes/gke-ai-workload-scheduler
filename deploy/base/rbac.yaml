@@ -4,7 +4,7 @@ metadata:
   name: scheduler-controller-sa
   namespace: ai-workload-scheduler
   annotations:
-    iam.gke.io/gcp-service-account: ai-ws-controller-sa@enes-turan-demo.iam.gserviceaccount.com
+    iam.gke.io/gcp-service-account: ai-ws-controller-sa@your-gcp-project-id.iam.gserviceaccount.com
   labels:
     app.kubernetes.io/name: gke-ai-workload-scheduler
     app.kubernetes.io/component: controller

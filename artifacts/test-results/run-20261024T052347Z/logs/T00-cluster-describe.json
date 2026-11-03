@@ -50,7 +50,7 @@
       "allowExternalTraffic": false,
       "enableK8sCertsViaDns": false,
       "enableK8sTokensViaDns": false,
-      "endpoint": "gke-06a3bbb290fe470e93db2c01770b83aacb88-697289276442.us-west4-a.gke.goog"
+      "endpoint": "gke-06a3bbb290fe470e93db2c01770b83aacb88-123456789012.us-west4-a.gke.goog"
     },
     "ipEndpointsConfig": {
       "authorizedNetworksConfig": {
@@ -59,7 +59,7 @@
       "enablePublicEndpoint": true,
       "enabled": true,
       "privateEndpoint": "172.16.0.50",
-      "privateEndpointSubnetwork": "projects/enes-turan-demo/regions/us-west4/subnetworks/gke-gke-ai-workload-scheduler-cdff54c9-pe-subnet",
+      "privateEndpointSubnetwork": "projects/your-gcp-project-id/regions/us-west4/subnetworks/gke-gke-ai-workload-scheduler-cdff54c9-pe-subnet",
       "publicEndpoint": "136.85.156.99"
     }
   },
@@ -83,7 +83,7 @@
   "initialClusterVersion": "1.36.4-gke.1495002",
   "initialNodeCount": 1,
   "instanceGroupUrls": [
-    "https://www.googleapis.com/compute/v1/projects/enes-turan-demo/zones/us-west4-a/instanceGroupManagers/gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-grp"
+    "https://www.googleapis.com/compute/v1/projects/your-gcp-project-id/zones/us-west4-a/instanceGroupManagers/gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-grp"
   ],
   "ipAllocationPolicy": {
     "clusterIpv4Cidr": "10.52.0.0/16",
@@ -142,9 +142,9 @@
   "networkConfig": {
     "defaultEnablePrivateNodes": true,
     "defaultSnatStatus": {},
-    "network": "projects/enes-turan-demo/global/networks/gke-ai-workload-scheduler-vpc",
+    "network": "projects/your-gcp-project-id/global/networks/gke-ai-workload-scheduler-vpc",
     "serviceExternalIpsConfig": {},
-    "subnetwork": "projects/enes-turan-demo/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet"
+    "subnetwork": "projects/your-gcp-project-id/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet"
   },
   "nodeConfig": {
     "bootDisk": {
@@ -180,7 +180,7 @@
     "resourceLabels": {
       "goog-gke-node-pool-provisioning-model": "on-demand"
     },
-    "serviceAccount": "ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com",
+    "serviceAccount": "ai-ws-node-sa@your-gcp-project-id.iam.gserviceaccount.com",
     "shieldedInstanceConfig": {
       "enableIntegrityMonitoring": true,
       "enableSecureBoot": true
@@ -246,7 +246,7 @@
         "resourceLabels": {
           "goog-gke-node-pool-provisioning-model": "on-demand"
         },
-        "serviceAccount": "ai-ws-node-sa@enes-turan-demo.iam.gserviceaccount.com",
+        "serviceAccount": "ai-ws-node-sa@your-gcp-project-id.iam.gserviceaccount.com",
         "shieldedInstanceConfig": {
           "enableIntegrityMonitoring": true,
           "enableSecureBoot": true
@@ -259,7 +259,7 @@
       "etag": "1ecdb139-f132-4042-99b7-e1dd1766b23f",
       "initialNodeCount": 1,
       "instanceGroupUrls": [
-        "https://www.googleapis.com/compute/v1/projects/enes-turan-demo/zones/us-west4-a/instanceGroupManagers/gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-grp"
+        "https://www.googleapis.com/compute/v1/projects/your-gcp-project-id/zones/us-west4-a/instanceGroupManagers/gke-gke-ai-workload-s-cpu-worker-pool-52db7b80-grp"
       ],
       "kubeletCertInfo": {
         "tpmBootstrapCertExpireTime": "2031-10-23T05:14:07Z"
@@ -283,10 +283,10 @@
         "podIpv4CidrBlock": "10.52.0.0/16",
         "podIpv4RangeUtilization": 0.0039,
         "podRange": "pods",
-        "subnetwork": "projects/enes-turan-demo/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet"
+        "subnetwork": "projects/your-gcp-project-id/regions/us-west4/subnetworks/gke-ai-workload-scheduler-subnet"
       },
       "podIpv4CidrSize": 24,
-      "selfLink": "https://container.googleapis.com/v1/projects/enes-turan-demo/zones/us-west4-a/clusters/gke-ai-workload-scheduler/nodePools/cpu-worker-pool",
+      "selfLink": "https://container.googleapis.com/v1/projects/your-gcp-project-id/zones/us-west4-a/clusters/gke-ai-workload-scheduler/nodePools/cpu-worker-pool",
       "status": "RUNNING",
       "upgradeSettings": {
         "maxSurge": 1,
@@ -324,7 +324,7 @@
     "mode": "BASIC",
     "vulnerabilityMode": "VULNERABILITY_MODE_UNSPECIFIED"
   },
-  "selfLink": "https://container.googleapis.com/v1/projects/enes-turan-demo/zones/us-west4-a/clusters/gke-ai-workload-scheduler",
+  "selfLink": "https://container.googleapis.com/v1/projects/your-gcp-project-id/zones/us-west4-a/clusters/gke-ai-workload-scheduler",
   "servicesIpv4Cidr": "10.53.0.0/20",
   "shieldedNodes": {
     "enabled": true
@@ -333,7 +333,7 @@
   "subnetwork": "gke-ai-workload-scheduler-subnet",
   "userManagedKeysConfig": {},
   "workloadIdentityConfig": {
-    "workloadPool": "enes-turan-demo.svc.id.goog"
+    "workloadPool": "your-gcp-project-id.svc.id.goog"
   },
   "zone": "us-west4-a"
 }

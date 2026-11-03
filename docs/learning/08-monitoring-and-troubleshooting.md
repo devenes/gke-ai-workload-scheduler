@@ -35,5 +35,5 @@ kubectl -n ai-workload-scheduler get podmonitoring -o yaml
 ```bash
 TOKEN=$(gcloud auth print-access-token)
 curl -s -H "Authorization: Bearer ${TOKEN}" \
-  "https://monitoring.googleapis.com/v3/projects/enes-turan-demo/timeSeries?filter=metric.type%3D%22prometheus.googleapis.com%2Fscheduler_tasks_completed_total%2Fcounter%22&interval.startTime=$(date -u -v-30M +%Y-%m-%dT%H:%M:%SZ)&interval.endTime=$(date -u +%Y-%m-%dT%H:%M:%SZ)" | jq '.timeSeries | length'
+  "https://monitoring.googleapis.com/v3/projects/your-gcp-project-id/timeSeries?filter=metric.type%3D%22prometheus.googleapis.com%2Fscheduler_tasks_completed_total%2Fcounter%22&interval.startTime=$(date -u -v-30M +%Y-%m-%dT%H:%M:%SZ)&interval.endTime=$(date -u +%Y-%m-%dT%H:%M:%SZ)" | jq '.timeSeries | length'
 ```

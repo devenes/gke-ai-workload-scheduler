@@ -17,7 +17,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
@@ -304,7 +304,7 @@
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -582,7 +582,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
@@ -867,7 +867,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -1145,7 +1145,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
@@ -1431,7 +1431,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -1710,7 +1710,7 @@
         "type": "prometheus_target",
         "labels": {
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
@@ -1994,7 +1994,7 @@
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler"
         }
@@ -2274,7 +2274,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
@@ -2555,7 +2555,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "namespace": "ai-workload-scheduler",
@@ -2841,7 +2841,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -3119,7 +3119,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
@@ -3405,7 +3405,7 @@
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler"
         }
       },
@@ -3687,7 +3687,7 @@
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -3967,7 +3967,7 @@
         "labels": {
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler"
@@ -4248,7 +4248,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring",
@@ -4531,7 +4531,7 @@
         "labels": {
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler"
@@ -4806,7 +4806,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -5084,7 +5084,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
@@ -5367,7 +5367,7 @@
         "type": "prometheus_target",
         "labels": {
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
@@ -5648,7 +5648,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "namespace": "ai-workload-scheduler",
@@ -5930,7 +5930,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
@@ -6212,7 +6212,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "namespace": "ai-workload-scheduler",
@@ -6495,7 +6495,7 @@
         "type": "prometheus_target",
         "labels": {
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",
@@ -6778,7 +6778,7 @@
         "labels": {
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler"
@@ -7062,7 +7062,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -7345,7 +7345,7 @@
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -7613,7 +7613,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
@@ -7895,7 +7895,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
@@ -8180,7 +8180,7 @@
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a"
         }
@@ -8459,7 +8459,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
@@ -8745,7 +8745,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -9027,7 +9027,7 @@
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -9305,7 +9305,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
@@ -9588,7 +9588,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
@@ -9862,7 +9862,7 @@
         "labels": {
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring"
@@ -10145,7 +10145,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring"
         }
@@ -10424,7 +10424,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
@@ -10711,7 +10711,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -10993,7 +10993,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -11275,7 +11275,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -11555,7 +11555,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler"
         }
@@ -11834,7 +11834,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
@@ -12117,7 +12117,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
@@ -12398,7 +12398,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
@@ -12681,7 +12681,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
@@ -12967,7 +12967,7 @@
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -13249,7 +13249,7 @@
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -13519,7 +13519,7 @@
         "labels": {
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "namespace": "ai-workload-scheduler"
@@ -13803,7 +13803,7 @@
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -14081,7 +14081,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
@@ -14368,7 +14368,7 @@
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -14636,7 +14636,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
@@ -14920,7 +14920,7 @@
         "labels": {
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler"
@@ -15205,7 +15205,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -15487,7 +15487,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -15769,7 +15769,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -16047,7 +16047,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "job": "scheduler-controller-monitoring",
@@ -16328,7 +16328,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
@@ -16614,7 +16614,7 @@
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler"
         }
       },
@@ -16885,7 +16885,7 @@
         "labels": {
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring"
@@ -17166,7 +17166,7 @@
         "type": "prometheus_target",
         "labels": {
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "job": "scheduler-controller-monitoring",
@@ -17440,7 +17440,7 @@
         "labels": {
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler"
@@ -17723,7 +17723,7 @@
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler"
         }
@@ -18002,7 +18002,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
@@ -18287,7 +18287,7 @@
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler"
         }
@@ -18567,7 +18567,7 @@
         "type": "prometheus_target",
         "labels": {
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "namespace": "ai-workload-scheduler",
@@ -18850,7 +18850,7 @@
         "labels": {
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "instance": "scheduler-controller-7c4cd947b8-kdkxf:http",
           "location": "us-west4-a"
@@ -19130,7 +19130,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
@@ -19412,7 +19412,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
@@ -19694,7 +19694,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
@@ -19845,7 +19845,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -19992,7 +19992,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -20140,7 +20140,7 @@
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -20286,7 +20286,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -20433,7 +20433,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -20581,7 +20581,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -20725,7 +20725,7 @@
         "labels": {
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler"
@@ -20875,7 +20875,7 @@
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -21020,7 +21020,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler"
         }
@@ -21164,7 +21164,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
@@ -21316,7 +21316,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -21458,7 +21458,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "job": "scheduler-controller-monitoring",
@@ -21607,7 +21607,7 @@
         "labels": {
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a"
@@ -21756,7 +21756,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -21904,7 +21904,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -22051,7 +22051,7 @@
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -22198,7 +22198,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -22342,7 +22342,7 @@
         "labels": {
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "namespace": "ai-workload-scheduler"
@@ -22488,7 +22488,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "job": "scheduler-controller-monitoring",
@@ -22639,7 +22639,7 @@
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -22782,7 +22782,7 @@
         "type": "prometheus_target",
         "labels": {
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
@@ -22933,7 +22933,7 @@
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -23079,7 +23079,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -23227,7 +23227,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -23370,7 +23370,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
@@ -23517,7 +23517,7 @@
         "type": "prometheus_target",
         "labels": {
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "job": "scheduler-controller-monitoring",
@@ -23667,7 +23667,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -23814,7 +23814,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring"
         }
       },
@@ -23958,7 +23958,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
@@ -24104,7 +24104,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
@@ -24254,7 +24254,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a"
         }
@@ -24398,7 +24398,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
@@ -24546,7 +24546,7 @@
         "type": "prometheus_target",
         "labels": {
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
@@ -24697,7 +24697,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -24842,7 +24842,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring"
         }
@@ -24991,7 +24991,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -25137,7 +25137,7 @@
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler"
         }
       },
@@ -25281,7 +25281,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
@@ -25429,7 +25429,7 @@
         "labels": {
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler"
@@ -25574,7 +25574,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
@@ -25725,7 +25725,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -25873,7 +25873,7 @@
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -26016,7 +26016,7 @@
         "type": "prometheus_target",
         "labels": {
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
@@ -26165,7 +26165,7 @@
           "namespace": "ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring"
         }
@@ -26309,7 +26309,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
@@ -26461,7 +26461,7 @@
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -26604,7 +26604,7 @@
         "type": "prometheus_target",
         "labels": {
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
@@ -26750,7 +26750,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
@@ -26897,7 +26897,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
@@ -27044,7 +27044,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring",
@@ -27193,7 +27193,7 @@
         "labels": {
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "cluster": "gke-ai-workload-scheduler"
@@ -27343,7 +27343,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -27490,7 +27490,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -27636,7 +27636,7 @@
           "job": "scheduler-controller-monitoring",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler"
         }
       },
@@ -27783,7 +27783,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler"
         }
       },
@@ -27926,7 +27926,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
@@ -28073,7 +28073,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a",
@@ -28223,7 +28223,7 @@
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "location": "us-west4-a"
         }
@@ -28369,7 +28369,7 @@
         "labels": {
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "cluster": "gke-ai-workload-scheduler"
@@ -28518,7 +28518,7 @@
           "location": "us-west4-a",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler"
         }
       },
@@ -28661,7 +28661,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "location": "us-west4-a",
@@ -28813,7 +28813,7 @@
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -28955,7 +28955,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
@@ -29105,7 +29105,7 @@
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http"
         }
@@ -29254,7 +29254,7 @@
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -29396,7 +29396,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "job": "scheduler-controller-monitoring",
           "namespace": "ai-workload-scheduler",
           "location": "us-west4-a",
@@ -29548,7 +29548,7 @@
           "instance": "scheduler-controller-867d955b6c-v2dsw:http",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
-          "project_id": "enes-turan-demo"
+          "project_id": "your-gcp-project-id"
         }
       },
       "metricKind": "CUMULATIVE",
@@ -29690,7 +29690,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "cluster": "gke-ai-workload-scheduler",
           "namespace": "ai-workload-scheduler",
           "job": "scheduler-controller-monitoring",
@@ -29837,7 +29837,7 @@
       "resource": {
         "type": "prometheus_target",
         "labels": {
-          "project_id": "enes-turan-demo",
+          "project_id": "your-gcp-project-id",
           "namespace": "ai-workload-scheduler",
           "cluster": "gke-ai-workload-scheduler",
           "location": "us-west4-a",

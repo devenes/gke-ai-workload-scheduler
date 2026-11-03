@@ -1,7 +1,7 @@
 ============================= test session starts ==============================
-platform darwin -- Python 3.13.16, pytest-8.3.4, pluggy-1.7.0 -- /Users/enes/GitHub/gke-ai-workload-scheduler/.venv/bin/python
+platform darwin -- Python 3.13.16, pytest-8.3.4, pluggy-1.7.0 -- /path/to/gke-ai-workload-scheduler/.venv/bin/python
 cachedir: .pytest_cache
-rootdir: /Users/enes/GitHub/gke-ai-workload-scheduler
+rootdir: /path/to/gke-ai-workload-scheduler
 configfile: pyproject.toml
 collecting ... collected 4 items
 

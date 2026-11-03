@@ -1,8 +1,8 @@
 # Cost and Quotas Analysis — `gke-ai-workload-scheduler`
 
-## 1. Live Quota Discovery (`enes-turan-demo` / `us-west4`)
+## 1. Live Quota Discovery (`your-gcp-project-id` / `us-west4`)
 
-All quota measurements below were retrieved live via read-only `gcloud compute project-info describe --project=enes-turan-demo` and `gcloud compute regions describe us-west4 --project=enes-turan-demo` on **2026-10-24**.
+All quota measurements below were retrieved live via read-only `gcloud compute project-info describe --project=your-gcp-project-id` and `gcloud compute regions describe us-west4 --project=your-gcp-project-id` on **2026-10-24**.
 
 ### 1.1 Project-Wide (Global) Quotas
 
@@ -32,7 +32,7 @@ All quota measurements below were retrieved live via read-only `gcloud compute p
 
 ## 2. Node Capacity & Kubelet Allocatable Math (`us-west4-a`)
 
-Machine availability in `us-west4-a` was verified via `gcloud compute machine-types list --zones=us-west4-a --project=enes-turan-demo`.
+Machine availability in `us-west4-a` was verified via `gcloud compute machine-types list --zones=us-west4-a --project=your-gcp-project-id`.
 
 ### 2.1 Comparison of Single-Node Options
 
@@ -65,7 +65,7 @@ Machine availability in `us-west4-a` was verified via `gcloud compute machine-ty
   5. [Google Cloud Observability (Cloud Logging & Cloud Monitoring) Pricing](https://cloud.google.com/stackdriver/pricing)
 
 > **Distinction between Public List Pricing and Actual Project Billing**:
-> The figures below are calculated from public on-demand pay-as-you-go rates in `us-west4` (`Las Vegas`). Actual project billing on `enes-turan-demo` depends on billing account free-tier eligibility (specifically the `$74.40/month` GKE cluster management credit covering one zonal cluster per billing account) and any organization-level discounts. Both **GKE Free-Tier Credited** and **Uncredited List Price** totals are reported below.
+> The figures below are calculated from public on-demand pay-as-you-go rates in `us-west4` (`Las Vegas`). Actual project billing on `your-gcp-project-id` depends on billing account free-tier eligibility (specifically the `$74.40/month` GKE cluster management credit covering one zonal cluster per billing account) and any organization-level discounts. Both **GKE Free-Tier Credited** and **Uncredited List Price** totals are reported below.
 
 ### 3.2 Component Unit Rates (`us-west4`)
 
@@ -93,7 +93,7 @@ Machine availability in `us-west4-a` was verified via `gcloud compute machine-ty
 ## 4. Final Post-Teardown Lifecycle Status & Future Redeployment Cost
 
 1. **Current Post-Destroy Billing Status (`$0.00 / hr`)**:
-   - Following completion of all live GKE benchmarks (`T00`–`T19` in [`artifacts/test-results/run-20261024T052934Z/summary.json`](artifacts/test-results/run-20261024T052934Z/summary.json) and `repro-20261024T053407Z`), all 24 Terraform-managed GCP resources in `enes-turan-demo` were destroyed via a reviewed `terraform plan -destroy -out=destroy.tfplan` and verified absent (see [`docs/TEARDOWN_REPORT.md`](docs/TEARDOWN_REPORT.md)).
+   - Following completion of all live GKE benchmarks (`T00`–`T19` in [`artifacts/test-results/run-20261024T052934Z/summary.json`](artifacts/test-results/run-20261024T052934Z/summary.json) and `repro-20261024T053407Z`), all 24 Terraform-managed GCP resources in `your-gcp-project-id` were destroyed via a reviewed `terraform plan -destroy -out=destroy.tfplan` and verified absent (see [`docs/TEARDOWN_REPORT.md`](docs/TEARDOWN_REPORT.md)).
    - **Current ongoing cloud cost for this project is `$0.00 / hr` (`$0.00 / month`).**
 2. **Measured Active Runtime Cost During Live Verification**:
    - The cluster ran for approximately `~0.65 hours` (`39 minutes`, from `05:07 UTC` to `05:46 UTC`), incurring an estimated total cloud cost of **`~$0.10 USD`** (`0.65 hr x $0.159/hr`).

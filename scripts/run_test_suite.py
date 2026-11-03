@@ -27,7 +27,7 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-PROJECT_ID = os.environ.get("PROJECT_ID", "enes-turan-demo")
+PROJECT_ID = os.environ.get("PROJECT_ID", "your-gcp-project-id")
 REGION = os.environ.get("REGION", "us-west4")
 ZONE = os.environ.get("ZONE", "us-west4-a")
 CLUSTER_NAME = os.environ.get("CLUSTER_NAME", "gke-ai-workload-scheduler")
@@ -1096,7 +1096,7 @@ class TestSuiteRunner:
             all_specs = [
                 (
                     "T00",
-                    "The GCP project enes-turan-demo, zonal GKE Standard cluster gke-ai-workload-scheduler (us-west4-a), CPU-only node pool, and namespace ai-workload-scheduler are active and healthy.",
+                    "The GCP project your-gcp-project-id, zonal GKE Standard cluster gke-ai-workload-scheduler (us-west4-a), CPU-only node pool, and namespace ai-workload-scheduler are active and healthy.",
                     ["Terraform apply completed", "kubectl context configured"],
                     ["Cluster status is RUNNING", "At least 1 Ready CPU node with 0 GPUs/TPUs", "Controller connected to Kubernetes API"],
                     ["Single-zone demonstration cluster in us-west4-a"],

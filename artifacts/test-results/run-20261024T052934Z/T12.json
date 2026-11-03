@@ -107,7 +107,7 @@
   "started_at": "2026-10-24T05:31:19.532638+00:00",
   "finished_at": "2026-10-24T05:32:46.569138+00:00",
   "environment": {
-    "project_id": "enes-turan-demo",
+    "project_id": "your-gcp-project-id",
     "region": "us-west4",
     "zone": "us-west4-a",
     "cluster_name": "gke-ai-workload-scheduler",

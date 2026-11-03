@@ -9,7 +9,7 @@
 
 ```bash
 export CLOUDSDK_PYTHON=/opt/homebrew/bin/python3.13
-export PROJECT_ID=enes-turan-demo
+export PROJECT_ID=your-gcp-project-id
 export REGION=us-west4
 export ZONE=us-west4-a
 export CLUSTER_NAME=gke-ai-workload-scheduler

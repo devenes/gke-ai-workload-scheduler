@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_ID="${PROJECT_ID:-enes-turan-demo}"
+PROJECT_ID="${PROJECT_ID:-your-gcp-project-id}"
 REGION="${REGION:-us-west4}"
 ZONE="${ZONE:-us-west4-a}"
 CLUSTER_NAME="${CLUSTER_NAME:-gke-ai-workload-scheduler}"
@@ -58,12 +58,12 @@ trap 'rm -rf "${TMP_DIR}"' EXIT
 cp -R deploy "${TMP_DIR}/deploy"
 
 sed -i.bak \
-  -e "s|us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/scheduler:v1.0.0|${AR_REPO}/scheduler@${SCHEDULER_DIGEST}|g" \
+  -e "s|us-west4-docker.pkg.dev/your-gcp-project-id/ai-workload-scheduler/scheduler:v1.0.0|${AR_REPO}/scheduler@${SCHEDULER_DIGEST}|g" \
   -e "s|value: \"pinned-at-deploy\"|value: \"${SCHEDULER_DIGEST}\"|g" \
   "${TMP_DIR}/deploy/base/controller-deployment.yaml"
 
 sed -i.bak \
-  -e "s|us-west4-docker.pkg.dev/enes-turan-demo/ai-workload-scheduler/predictor:v1.0.0|${AR_REPO}/predictor@${PREDICTOR_DIGEST}|g" \
+  -e "s|us-west4-docker.pkg.dev/your-gcp-project-id/ai-workload-scheduler/predictor:v1.0.0|${AR_REPO}/predictor@${PREDICTOR_DIGEST}|g" \
   -e "s|value: \"pinned-at-deploy\"|value: \"${PREDICTOR_DIGEST}\"|g" \
   "${TMP_DIR}/deploy/base/predictor-deployment.yaml"
 
